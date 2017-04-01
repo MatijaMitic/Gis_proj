@@ -12,6 +12,7 @@ namespace Gis_rekreacija
         public static string port = "5432";
         public static string username = "postgres";
         public static string password = "postgres";
-        public static string database = "test_template";
+        //public static string database = "test_template";
+        public static string database = "TestGIS";
     }
 }
