@@ -1,0 +1,332 @@
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.pdb
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.pdb
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Desktop.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.MbTiles.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Serialization.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Common.Logging.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdalconst_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdal_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\GeoAPI.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Mono.Security.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.GeoTools.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.MsSqlSpatial.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.PostGis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.SpatiaLite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\ogr_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\osr_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\PowerCollections.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Reflection.Metadata.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.pdb
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csprojResolveAssemblyReference.cache
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Form1.resources
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Properties.Resources.resources
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csproj.GenerateResource.Cache
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.AppContext.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.dll
+C:\Users\Matija\Desktop\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe.config
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.rsp
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.rsp
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.AppContext.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe.config
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.rsp
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe.config
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.pdb
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Desktop.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.MbTiles.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Serialization.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Common.Logging.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdalconst_csharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdal_csharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\GeoAPI.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Mono.Security.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.GeoTools.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.MsSqlSpatial.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.PostGis.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.SpatiaLite.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ogr_csharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\osr_csharp.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\PowerCollections.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Reflection.Metadata.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.pdb
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.xml
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csprojResolveAssemblyReference.cache
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Form1.resources
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.LayerStyle.resources
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Properties.Resources.resources
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csproj.GenerateResource.Cache
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Documents\Visual Studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.pdb
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe.config
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.rsp
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.rsp
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.AppContext.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe.config
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.rsp
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe.config
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.pdb
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Desktop.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.MbTiles.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Serialization.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Common.Logging.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdalconst_csharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdal_csharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\GeoAPI.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Mono.Security.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.GeoTools.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.MsSqlSpatial.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.PostGis.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.SpatiaLite.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ogr_csharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\osr_csharp.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\PowerCollections.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Collections.Immutable.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Reflection.Metadata.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.pdb
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.xml
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\de\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\es\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Form1.resources
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.LayerStyle.resources
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Properties.Resources.resources
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csproj.GenerateResource.Cache
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.exe
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.pdb
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csprojResolveAssemblyReference.cache
+C:\Users\marin\documents\visual studio 2015\Projects\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.LayerFeatureQuery.resources
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csc.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\csi.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.AppContext.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\vbc.rsp
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe.config
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Gis_rekreacija.pdb
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Desktop.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.MbTiles.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\BruTile.Serialization.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Common.Logging.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdalconst_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\gdal_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\GeoAPI.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeAnalysis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Mono.Security.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.GeoTools.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.MsSqlSpatial.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.PostGis.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\NetTopologySuite.IO.SpatiaLite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\ogr_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\osr_csharp.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\PowerCollections.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\System.Reflection.Metadata.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\DotSpatial.Projections.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.pdb
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\Npgsql.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\ProjNet.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.Extensions.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\SharpMap.UI.xml
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csprojResolveAssemblyReference.cache
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Form1.resources
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.LayerFeatureQuery.resources
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.LayerStyle.resources
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.Properties.Resources.resources
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.csproj.GenerateResource.Cache
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Desktop\Gis_rekreacija (5)\Gis_rekreacija\Gis_rekreacija\obj\Debug\Gis_rekreacija.pdb
+C:\Users\Matija\Source\Repos\Gis_proj\Gis_rekreacija\bin\Debug\Gis_rekreacija.exe.config
+C:\Users\Matija\Source\Repos\Gis_proj\Gis_rekreacija\obj\Debug\Gis_rekreacija.exe
+C:\Users\Matija\Source\Repos\Gis_proj\Gis_rekreacija\obj\Debug\Gis_rekreacija.pdb
