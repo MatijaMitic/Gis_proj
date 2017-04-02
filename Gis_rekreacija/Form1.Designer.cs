@@ -56,6 +56,7 @@ namespace Gis_rekreacija
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.mapDigitizeGeometriesToolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +105,7 @@ namespace Gis_rekreacija
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(10, 105);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 379);
+            this.checkedListBox1.Size = new System.Drawing.Size(120, 319);
             this.checkedListBox1.TabIndex = 6;
             this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             this.checkedListBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.checkedListBox1_DragDrop);
@@ -125,7 +126,7 @@ namespace Gis_rekreacija
             // btnFeatureQuery
             // 
             this.btnFeatureQuery.Location = new System.Drawing.Point(10, 62);
-            this.btnFeatureQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFeatureQuery.Margin = new System.Windows.Forms.Padding(2);
             this.btnFeatureQuery.Name = "btnFeatureQuery";
             this.btnFeatureQuery.Size = new System.Drawing.Size(119, 33);
             this.btnFeatureQuery.TabIndex = 8;
@@ -149,9 +150,9 @@ namespace Gis_rekreacija
             this.groupBox1.Controls.Add(this.cbOperation);
             this.groupBox1.Controls.Add(this.cbFirstLayer);
             this.groupBox1.Location = new System.Drawing.Point(146, 422);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(382, 230);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -160,7 +161,7 @@ namespace Gis_rekreacija
             // btnExecuteQuery
             // 
             this.btnExecuteQuery.Location = new System.Drawing.Point(160, 177);
-            this.btnExecuteQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExecuteQuery.Margin = new System.Windows.Forms.Padding(2);
             this.btnExecuteQuery.Name = "btnExecuteQuery";
             this.btnExecuteQuery.Size = new System.Drawing.Size(79, 31);
             this.btnExecuteQuery.TabIndex = 12;
@@ -201,7 +202,7 @@ namespace Gis_rekreacija
             // 
             this.lbSecondObjectInfo.FormattingEnabled = true;
             this.lbSecondObjectInfo.Location = new System.Drawing.Point(266, 132);
-            this.lbSecondObjectInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbSecondObjectInfo.Margin = new System.Windows.Forms.Padding(2);
             this.lbSecondObjectInfo.Name = "lbSecondObjectInfo";
             this.lbSecondObjectInfo.Size = new System.Drawing.Size(91, 95);
             this.lbSecondObjectInfo.TabIndex = 8;
@@ -210,7 +211,7 @@ namespace Gis_rekreacija
             // 
             this.lbFirstObjectInfo.FormattingEnabled = true;
             this.lbFirstObjectInfo.Location = new System.Drawing.Point(35, 132);
-            this.lbFirstObjectInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbFirstObjectInfo.Margin = new System.Windows.Forms.Padding(2);
             this.lbFirstObjectInfo.Name = "lbFirstObjectInfo";
             this.lbFirstObjectInfo.Size = new System.Drawing.Size(91, 95);
             this.lbFirstObjectInfo.TabIndex = 7;
@@ -218,7 +219,7 @@ namespace Gis_rekreacija
             // btnSelectSecondObject
             // 
             this.btnSelectSecondObject.Location = new System.Drawing.Point(246, 83);
-            this.btnSelectSecondObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectSecondObject.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectSecondObject.Name = "btnSelectSecondObject";
             this.btnSelectSecondObject.Size = new System.Drawing.Size(140, 45);
             this.btnSelectSecondObject.TabIndex = 6;
@@ -229,7 +230,7 @@ namespace Gis_rekreacija
             // btnSelectFirstObject
             // 
             this.btnSelectFirstObject.Location = new System.Drawing.Point(4, 84);
-            this.btnSelectFirstObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectFirstObject.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectFirstObject.Name = "btnSelectFirstObject";
             this.btnSelectFirstObject.Size = new System.Drawing.Size(146, 43);
             this.btnSelectFirstObject.TabIndex = 5;
@@ -241,7 +242,7 @@ namespace Gis_rekreacija
             // 
             this.cbToggleSecondObject.AutoSize = true;
             this.cbToggleSecondObject.Location = new System.Drawing.Point(265, 61);
-            this.cbToggleSecondObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbToggleSecondObject.Margin = new System.Windows.Forms.Padding(2);
             this.cbToggleSecondObject.Name = "cbToggleSecondObject";
             this.cbToggleSecondObject.Size = new System.Drawing.Size(126, 17);
             this.cbToggleSecondObject.TabIndex = 4;
@@ -253,7 +254,7 @@ namespace Gis_rekreacija
             // 
             this.cbToggleFirstObject.AutoSize = true;
             this.cbToggleFirstObject.Location = new System.Drawing.Point(35, 62);
-            this.cbToggleFirstObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbToggleFirstObject.Margin = new System.Windows.Forms.Padding(2);
             this.cbToggleFirstObject.Name = "cbToggleFirstObject";
             this.cbToggleFirstObject.Size = new System.Drawing.Size(107, 17);
             this.cbToggleFirstObject.TabIndex = 3;
@@ -265,7 +266,7 @@ namespace Gis_rekreacija
             // 
             this.cbSecondLayer.FormattingEnabled = true;
             this.cbSecondLayer.Location = new System.Drawing.Point(265, 37);
-            this.cbSecondLayer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSecondLayer.Margin = new System.Windows.Forms.Padding(2);
             this.cbSecondLayer.Name = "cbSecondLayer";
             this.cbSecondLayer.Size = new System.Drawing.Size(92, 21);
             this.cbSecondLayer.TabIndex = 2;
@@ -274,7 +275,7 @@ namespace Gis_rekreacija
             // 
             this.cbOperation.FormattingEnabled = true;
             this.cbOperation.Location = new System.Drawing.Point(148, 37);
-            this.cbOperation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbOperation.Margin = new System.Windows.Forms.Padding(2);
             this.cbOperation.Name = "cbOperation";
             this.cbOperation.Size = new System.Drawing.Size(99, 21);
             this.cbOperation.TabIndex = 1;
@@ -283,7 +284,7 @@ namespace Gis_rekreacija
             // 
             this.cbFirstLayer.FormattingEnabled = true;
             this.cbFirstLayer.Location = new System.Drawing.Point(35, 37);
-            this.cbFirstLayer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFirstLayer.Margin = new System.Windows.Forms.Padding(2);
             this.cbFirstLayer.Name = "cbFirstLayer";
             this.cbFirstLayer.Size = new System.Drawing.Size(92, 21);
             this.cbFirstLayer.TabIndex = 0;
@@ -332,11 +333,22 @@ namespace Gis_rekreacija
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(10, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 45);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Label Settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 663);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mapDigitizeGeometriesToolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFeatureQuery);
@@ -345,7 +357,7 @@ namespace Gis_rekreacija
             this.Controls.Add(this.label2);
             this.Controls.Add(this.mapBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -382,6 +394,7 @@ namespace Gis_rekreacija
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
+        private Button button1;
     }
 }
 

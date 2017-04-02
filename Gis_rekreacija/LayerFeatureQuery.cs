@@ -74,24 +74,11 @@ namespace Gis_rekreacija
 
         private void GetDistinctValues(VectorLayer layer)
         {
-            DataTable dt = new DataTable();
-            DataSet ds = new DataSet();
-            NpgsqlConnection conn = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");
-            conn.Open();
-
-            string tableName = layer.DataSource.GetFeature(1).Table.TableName; 
-            string sqlColumns = "SELECT * FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '" + tableName + "'";
-
-            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sqlColumns, conn);
-            ds.Reset();
-            da.Fill(ds);
-            dt = ds.Tables[0];
-            foreach (DataRow row in dt.Rows)
+            DataRowCollection dtRows = DataLayer.DataLayer.GetLayerColumns(layer);
+            foreach (DataRow row in dtRows)
             {
                 lbAttributes.Items.Add(row.ItemArray[3]);
             }
-
-            conn.Close();
         }
 
         private void btnExecute_Click(object sender, EventArgs e)

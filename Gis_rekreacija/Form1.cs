@@ -716,5 +716,13 @@ namespace Gis_rekreacija
             mode = (int)Modes.DrawPolygon;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.DrawPolygon;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkedListBox1.SelectedIndex >= 0)
+            {
+                //show dialog with selected layer columns
+            }
+        }
     }
 }
