@@ -60,24 +60,15 @@ namespace Gis_rekreacija
             roads.DataSource = new SharpMap.Data.Providers.PostGIS(connStr, tablename_line, geomname, idname);
             all_layers.Add(roads.ToString(), roads);
 
-            //labele
-            SharpMap.Layers.LabelLayer labelLayer = new SharpMap.Layers.LabelLayer("PolyLabels");
-            labelLayer.DataSource = polygons.DataSource;
-            labelLayer.LabelColumn = "name";
-            labelLayer.Style.CollisionDetection = true;
-            labelLayer.Style.CollisionBuffer = new SizeF(10, 10);
-            all_layers.Add(labelLayer.ToString(), labelLayer);
-
+            
             mapBox1.Map.BackColor = Color.White;
             mapBox1.Map.Layers.Add(points);
             mapBox1.Map.Layers.Add(polygons);
             mapBox1.Map.Layers.Add(roads);
-            mapBox1.Map.Layers.Add(labelLayer);
 
             this.checkedListBox1.Items.Add(points.ToString(), true);
             this.checkedListBox1.Items.Add(polygons.ToString(), true);
             this.checkedListBox1.Items.Add(roads.ToString(), true);
-            this.checkedListBox1.Items.Add(labelLayer.ToString(), true);
 
             mapBox1.Map.BackgroundLayer.Add(new SharpMap.Layers.TileAsyncLayer(
              new BruTile.Web.OsmTileSource(), "OSM"));
@@ -92,6 +83,19 @@ namespace Gis_rekreacija
             FillSpatialQueryInitialData();
         }
 
+        public void AddLabelLayer(LabelLayer labelLayer) {
+            all_layers.Add(labelLayer.ToString(), labelLayer);
+            mapBox1.Map.Layers.Add(labelLayer);
+            this.checkedListBox1.Items.Add(labelLayer.ToString(), true);
+        }
+        public void RemoveLabelLayer(string labelLayer) {
+            if (all_layers.ContainsKey(labelLayer)) {
+                var layer = all_layers[labelLayer];
+                all_layers.Remove(labelLayer);
+                mapBox1.Map.Layers.Remove(layer);
+                this.checkedListBox1.Items.Remove(labelLayer);
+            }
+        }
 
         private void mapBox1_MouseMove(GeoAPI.Geometries.Coordinate worldPos, MouseEventArgs imagePos)
         {
@@ -721,7 +725,19 @@ namespace Gis_rekreacija
         {
             if (checkedListBox1.SelectedIndex >= 0)
             {
-                //show dialog with selected layer columns
+                var layerName = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
+
+                var layer = all_layers[layerName];
+                if (layer.GetType() == typeof(VectorLayer))
+                {
+                    int selectedIndex=0;
+                    LabelForm lf = new LabelForm((VectorLayer)layer, selectedIndex);
+                    lf.mainForm = this;
+                    lf.ShowDialog();
+
+                   mapBox1.Refresh();
+                }
+                
             }
         }
     }

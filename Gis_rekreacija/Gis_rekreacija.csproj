@@ -189,6 +189,12 @@
     </Compile>
     <Compile Include="GdalConfiguration.cs" />
     <Compile Include="GdalNativeConfiguration.cs" />
+    <Compile Include="LabelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelForm.Designer.cs">
+      <DependentUpon>LabelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LayerFeatureQuery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelForm.resx">
+      <DependentUpon>LabelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LayerFeatureQuery.resx">
       <DependentUpon>LayerFeatureQuery.cs</DependentUpon>
