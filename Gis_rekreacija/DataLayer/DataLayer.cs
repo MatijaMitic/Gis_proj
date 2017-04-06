@@ -28,5 +28,19 @@ namespace Gis_rekreacija.DataLayer
             conn.Close();
             return dt.Rows;
         }
+
+        public static DataRowCollection GetDistinctValues(VectorLayer layer, string column_name)
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+            NpgsqlConnection conn = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");
+            conn.Open();
+            string sql = " SELECT distinct "+column_name+" FROM " + layer.DataSource.GetFeature(1).Table.TableName;
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt.Rows;
+        }
     }
 }

@@ -241,20 +241,21 @@ namespace Gis_rekreacija
             }
         }
 
-        private void btnEditLayer_Click(object sender, EventArgs e)
+        private void btnEditLayer_Click(object sender, EventArgs e) // stilovi
         {
             if (checkedListBox1.SelectedIndex >= 0)
             {
                 var layerName = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
+                if (mapBox1.Map.Layers.GetLayerByName(layerName).Enabled) {
+                    var layer = all_layers[layerName];
+                    if (layer.GetType() == typeof(VectorLayer))
+                    {
+                        LayerStyle styleForm = new LayerStyle((VectorLayer)layer);
 
-                var layer = all_layers[layerName];
-                if (layer.GetType() == typeof(VectorLayer))
-                {
-                    LayerStyle styleForm = new LayerStyle((VectorLayer)layer);
+                        styleForm.Show();
 
-                    styleForm.Show();
-
-                    mapBox1.Refresh();
+                        mapBox1.Refresh();
+                    }
                 }
             }
         }
@@ -721,23 +722,24 @@ namespace Gis_rekreacija
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.DrawPolygon;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //labele
         {
             if (checkedListBox1.SelectedIndex >= 0)
             {
                 var layerName = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
-
-                var layer = all_layers[layerName];
-                if (layer.GetType() == typeof(VectorLayer))
+                if (mapBox1.Map.Layers.GetLayerByName(layerName).Enabled) // dal je vidljiv
                 {
-                    int selectedIndex=0;
-                    LabelForm lf = new LabelForm((VectorLayer)layer, selectedIndex);
-                    lf.mainForm = this;
-                    lf.ShowDialog();
+                    var layer = all_layers[layerName];
+                    if (layer.GetType() == typeof(VectorLayer))
+                    {
+                        int selectedIndex = 0;
+                        LabelForm lf = new LabelForm((VectorLayer)layer, selectedIndex);
+                        lf.mainForm = this;
+                        lf.ShowDialog();
 
-                   mapBox1.Refresh();
+                        mapBox1.Refresh();
+                    }
                 }
-                
             }
         }
     }

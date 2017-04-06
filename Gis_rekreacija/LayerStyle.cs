@@ -17,6 +17,7 @@ namespace Gis_rekreacija
       
 
         VectorLayer layer;
+        string attribute_column;
         string mode;
         Dictionary<string, SharpMap.Styles.IStyle> styles;
         public LayerStyle()
@@ -28,32 +29,29 @@ namespace Gis_rekreacija
         {
             InitializeComponent();
             this.layer = layer;
+            this.label1.Text = "Selected layer: "+layer.LayerName;
+
+            DataRowCollection dtr = DataLayer.DataLayer.GetLayerColumns(layer);
+            //fill combo box
+            foreach(DataRow dr in dtr) {
+                this.comboBox1.Items.Add(dr.ItemArray[3]);
+            }
+
             var type = layer.DataSource.GetType();
             var feature = layer.DataSource.GetFeature(1);
             var row = feature.Geometry.GeometryType;
             styles = new Dictionary<string, SharpMap.Styles.IStyle>();
-            GetDistinctValues(this.layer);
             if (row == "Point")
             {
-                groupBoxPoint.Visible = true;
+                mode = "point";
             }
-            else if (row == "MultiPolygon") {
-
+            else if (row == "MultiPolygon")
+            {
+                mode = "polygone";
             }
-        }
-
-        private void GetDistinctValues(VectorLayer layer) {
-            DataTable dt = new DataTable();
-            DataSet ds = new DataSet();
-            NpgsqlConnection conn = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");
-                conn.Open();
-                string sql = " SELECT distinct fclass FROM "+layer.DataSource.GetFeature(1).Table.TableName +" limit 10";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
-                ds.Reset();
-                da.Fill(ds);
-                dt = ds.Tables[0];
-            foreach(DataRow row in dt.Rows)
-                style_listBox1.Items.Add(row.ItemArray[0]);
+            else {//treba da se doda provera
+                mode = "line";
+            }
         }
 
     private void button1_Click(object sender, EventArgs e)
@@ -123,6 +121,44 @@ namespace Gis_rekreacija
             {
                 styles.Add(style_listBox1.SelectedItem.ToString(), pointStyle);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.comboBox1.SelectedIndex != -1) {
+                string attr_col = this.comboBox1.SelectedItem.ToString();
+                attribute_column = attr_col;
+                DataRowCollection dtRow = DataLayer.DataLayer.GetDistinctValues(this.layer, attr_col);
+                this.style_listBox1.Items.Clear();
+                foreach (DataRow dr in dtRow) {
+                    this.style_listBox1.Items.Add(dr.ItemArray[0]);
+                }
+            }
+        }
+
+        private void style_listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.comboBox1.SelectedIndex != -1) {
+                //enable types...
+                if (mode == "point")
+                {
+                    groupBoxPoint.Enabled = true;
+                    colorPictureBox(pictureBox_point, layer.Style.PointColor);
+                }
+                else if (mode == "polygon")
+                {
+                    groupBoxPolygon.Enabled = true;
+                }
+                else {
+                    groupBoxLine.Enabled = true;
+                }
+            }
+        }
+        private void colorPictureBox(PictureBox box, Brush b) {
+            Bitmap bmp = new Bitmap(box.Width, box.Height);
+            box.Image = bmp;
+            Graphics graphics = Graphics.FromImage(box.Image);
+            graphics.FillRectangle(b, new System.Drawing.Rectangle(0, 0, box.Width, box.Height));
         }
     }
 }
