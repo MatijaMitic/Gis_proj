@@ -80,11 +80,13 @@ namespace Gis_rekreacija
         {
             colorDialog1.ShowDialog();
             Color color = colorDialog1.Color;
-            SharpMap.Styles.VectorStyle pointStyle = new SharpMap.Styles.VectorStyle();
+            Brush b = new SolidBrush(color);
+            colorPictureBox(pictureBox_point, b);
+            /*SharpMap.Styles.VectorStyle pointStyle = new SharpMap.Styles.VectorStyle();
             pointStyle.PointColor = new System.Drawing.SolidBrush(color);
             pointStyle.PointSize = float.Parse(tbPointWidth.Text);
 
-            AddToStyle(pointStyle);
+            AddToStyle(pointStyle);*/
         }
 
         private void groupBoxPolygon_Enter(object sender, EventArgs e)
@@ -98,7 +100,7 @@ namespace Gis_rekreacija
             Color color = colorDialog1.Color;
             SharpMap.Styles.VectorStyle pointStyle = new SharpMap.Styles.VectorStyle();
             pointStyle.Fill = new System.Drawing.SolidBrush(color);
-            pointStyle.Outline = new Pen(new System.Drawing.SolidBrush(color), float.Parse(tbPolygonWidth.Text));
+            pointStyle.Outline = new Pen(new System.Drawing.SolidBrush(color), float.Parse(textBox_poly_width.Text));
             AddToStyle(pointStyle);
         }
 
@@ -144,13 +146,18 @@ namespace Gis_rekreacija
                 {
                     groupBoxPoint.Enabled = true;
                     colorPictureBox(pictureBox_point, layer.Style.PointColor);
+                    tbPointWidth.Text =  layer.Style.PointSize.ToString();
                 }
                 else if (mode == "polygon")
                 {
                     groupBoxPolygon.Enabled = true;
+                    colorPictureBox(pictureBox_polygon, layer.Style.Fill);
+                    textBox_poly_width.Text = layer.Style.Outline.Width.ToString();
                 }
                 else {
                     groupBoxLine.Enabled = true;
+                    colorPictureBox(pictureBox_line,new SolidBrush(layer.Style.Line.Color));
+                    tbLineWidth.Text = layer.Style.Line.Width.ToString();
                 }
             }
         }

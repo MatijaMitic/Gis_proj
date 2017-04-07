@@ -35,22 +35,30 @@
             this.buttonLineColor = new System.Windows.Forms.Button();
             this.buttonPolyg = new System.Windows.Forms.Button();
             this.groupBoxPoint = new System.Windows.Forms.GroupBox();
+            this.pictureBox_point = new System.Windows.Forms.PictureBox();
+            this.label_color_point = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbPointWidth = new System.Windows.Forms.TextBox();
             this.groupBoxPolygon = new System.Windows.Forms.GroupBox();
-            this.tbPolygonWidth = new System.Windows.Forms.TextBox();
             this.groupBoxLine = new System.Windows.Forms.GroupBox();
             this.tbLineWidth = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label_color_point = new System.Windows.Forms.Label();
-            this.pictureBox_point = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox_polygon = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox_line = new System.Windows.Forms.PictureBox();
+            this.textBox_poly_width = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBoxPoint.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).BeginInit();
             this.groupBoxPolygon.SuspendLayout();
             this.groupBoxLine.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_polygon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_line)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -75,7 +83,7 @@
             // 
             // point_color_button
             // 
-            this.point_color_button.Location = new System.Drawing.Point(9, 71);
+            this.point_color_button.Location = new System.Drawing.Point(6, 71);
             this.point_color_button.Name = "point_color_button";
             this.point_color_button.Size = new System.Drawing.Size(75, 23);
             this.point_color_button.TabIndex = 2;
@@ -85,21 +93,21 @@
             // 
             // buttonLineColor
             // 
-            this.buttonLineColor.Location = new System.Drawing.Point(119, 71);
+            this.buttonLineColor.Location = new System.Drawing.Point(9, 73);
             this.buttonLineColor.Name = "buttonLineColor";
             this.buttonLineColor.Size = new System.Drawing.Size(75, 23);
             this.buttonLineColor.TabIndex = 3;
-            this.buttonLineColor.Text = "Color";
+            this.buttonLineColor.Text = "New color";
             this.buttonLineColor.UseVisualStyleBackColor = true;
             this.buttonLineColor.Click += new System.EventHandler(this.buttonLineColor_Click);
             // 
             // buttonPolyg
             // 
-            this.buttonPolyg.Location = new System.Drawing.Point(119, 62);
+            this.buttonPolyg.Location = new System.Drawing.Point(6, 71);
             this.buttonPolyg.Name = "buttonPolyg";
             this.buttonPolyg.Size = new System.Drawing.Size(75, 23);
             this.buttonPolyg.TabIndex = 4;
-            this.buttonPolyg.Text = "Color";
+            this.buttonPolyg.Text = "New color";
             this.buttonPolyg.UseVisualStyleBackColor = true;
             this.buttonPolyg.Click += new System.EventHandler(this.buttonPolyg_Click);
             // 
@@ -118,6 +126,34 @@
             this.groupBoxPoint.TabStop = false;
             this.groupBoxPoint.Text = "Point";
             // 
+            // pictureBox_point
+            // 
+            this.pictureBox_point.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox_point.Location = new System.Drawing.Point(66, 55);
+            this.pictureBox_point.Name = "pictureBox_point";
+            this.pictureBox_point.Size = new System.Drawing.Size(22, 13);
+            this.pictureBox_point.TabIndex = 12;
+            this.pictureBox_point.TabStop = false;
+            // 
+            // label_color_point
+            // 
+            this.label_color_point.AutoSize = true;
+            this.label_color_point.ForeColor = System.Drawing.Color.Black;
+            this.label_color_point.Location = new System.Drawing.Point(6, 55);
+            this.label_color_point.Name = "label_color_point";
+            this.label_color_point.Size = new System.Drawing.Size(60, 13);
+            this.label_color_point.TabIndex = 5;
+            this.label_color_point.Text = "Point color:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Point width:";
+            // 
             // tbPointWidth
             // 
             this.tbPointWidth.Location = new System.Drawing.Point(9, 32);
@@ -127,7 +163,10 @@
             // 
             // groupBoxPolygon
             // 
-            this.groupBoxPolygon.Controls.Add(this.tbPolygonWidth);
+            this.groupBoxPolygon.Controls.Add(this.label8);
+            this.groupBoxPolygon.Controls.Add(this.textBox_poly_width);
+            this.groupBoxPolygon.Controls.Add(this.pictureBox_polygon);
+            this.groupBoxPolygon.Controls.Add(this.label5);
             this.groupBoxPolygon.Controls.Add(this.buttonPolyg);
             this.groupBoxPolygon.Enabled = false;
             this.groupBoxPolygon.Location = new System.Drawing.Point(235, 144);
@@ -138,15 +177,11 @@
             this.groupBoxPolygon.Text = "Polygon";
             this.groupBoxPolygon.Enter += new System.EventHandler(this.groupBoxPolygon_Enter);
             // 
-            // tbPolygonWidth
-            // 
-            this.tbPolygonWidth.Location = new System.Drawing.Point(7, 20);
-            this.tbPolygonWidth.Name = "tbPolygonWidth";
-            this.tbPolygonWidth.Size = new System.Drawing.Size(100, 20);
-            this.tbPolygonWidth.TabIndex = 5;
-            // 
             // groupBoxLine
             // 
+            this.groupBoxLine.Controls.Add(this.pictureBox_line);
+            this.groupBoxLine.Controls.Add(this.label7);
+            this.groupBoxLine.Controls.Add(this.label6);
             this.groupBoxLine.Controls.Add(this.tbLineWidth);
             this.groupBoxLine.Controls.Add(this.buttonLineColor);
             this.groupBoxLine.Enabled = false;
@@ -159,7 +194,7 @@
             // 
             // tbLineWidth
             // 
-            this.tbLineWidth.Location = new System.Drawing.Point(7, 30);
+            this.tbLineWidth.Location = new System.Drawing.Point(9, 32);
             this.tbLineWidth.Name = "tbLineWidth";
             this.tbLineWidth.Size = new System.Drawing.Size(100, 20);
             this.tbLineWidth.TabIndex = 4;
@@ -172,15 +207,6 @@
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Layer: SomeLayer";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Point width:";
             // 
             // comboBox1
             // 
@@ -209,23 +235,67 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Select value:";
             // 
-            // label_color_point
+            // label5
             // 
-            this.label_color_point.AutoSize = true;
-            this.label_color_point.Location = new System.Drawing.Point(6, 55);
-            this.label_color_point.Name = "label_color_point";
-            this.label_color_point.Size = new System.Drawing.Size(34, 13);
-            this.label_color_point.TabIndex = 5;
-            this.label_color_point.Text = "Color:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Fill color:";
             // 
-            // pictureBox_point
+            // pictureBox_polygon
             // 
-            this.pictureBox_point.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox_point.Location = new System.Drawing.Point(46, 55);
-            this.pictureBox_point.Name = "pictureBox_point";
-            this.pictureBox_point.Size = new System.Drawing.Size(22, 13);
-            this.pictureBox_point.TabIndex = 12;
-            this.pictureBox_point.TabStop = false;
+            this.pictureBox_polygon.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox_polygon.Location = new System.Drawing.Point(66, 55);
+            this.pictureBox_polygon.Name = "pictureBox_polygon";
+            this.pictureBox_polygon.Size = new System.Drawing.Size(22, 13);
+            this.pictureBox_polygon.TabIndex = 13;
+            this.pictureBox_polygon.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Line width:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(6, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Line color:";
+            // 
+            // pictureBox_line
+            // 
+            this.pictureBox_line.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox_line.Location = new System.Drawing.Point(66, 57);
+            this.pictureBox_line.Name = "pictureBox_line";
+            this.pictureBox_line.Size = new System.Drawing.Size(22, 13);
+            this.pictureBox_line.TabIndex = 14;
+            this.pictureBox_line.TabStop = false;
+            // 
+            // textBox_poly_width
+            // 
+            this.textBox_poly_width.Location = new System.Drawing.Point(6, 32);
+            this.textBox_poly_width.Name = "textBox_poly_width";
+            this.textBox_poly_width.Size = new System.Drawing.Size(100, 20);
+            this.textBox_poly_width.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Outline width:";
             // 
             // LayerStyle
             // 
@@ -246,11 +316,13 @@
             this.Text = "LayerStyle";
             this.groupBoxPoint.ResumeLayout(false);
             this.groupBoxPoint.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).EndInit();
             this.groupBoxPolygon.ResumeLayout(false);
             this.groupBoxPolygon.PerformLayout();
             this.groupBoxLine.ResumeLayout(false);
             this.groupBoxLine.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_polygon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_line)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,7 +340,6 @@
         private System.Windows.Forms.GroupBox groupBoxPolygon;
         private System.Windows.Forms.GroupBox groupBoxLine;
         private System.Windows.Forms.TextBox tbPointWidth;
-        private System.Windows.Forms.TextBox tbPolygonWidth;
         private System.Windows.Forms.TextBox tbLineWidth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -277,5 +348,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_color_point;
         private System.Windows.Forms.PictureBox pictureBox_point;
+        private System.Windows.Forms.PictureBox pictureBox_polygon;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox_line;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox_poly_width;
     }
 }
