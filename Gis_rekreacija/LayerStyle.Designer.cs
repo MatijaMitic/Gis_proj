@@ -40,24 +40,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbPointWidth = new System.Windows.Forms.TextBox();
             this.groupBoxPolygon = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox_poly_width = new System.Windows.Forms.TextBox();
+            this.pictureBox_polygon = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxLine = new System.Windows.Forms.GroupBox();
+            this.pictureBox_line = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tbLineWidth = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox_polygon = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox_line = new System.Windows.Forms.PictureBox();
-            this.textBox_poly_width = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.button_point_save = new System.Windows.Forms.Button();
+            this.button_poly_save = new System.Windows.Forms.Button();
+            this.button_line_save = new System.Windows.Forms.Button();
             this.groupBoxPoint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).BeginInit();
             this.groupBoxPolygon.SuspendLayout();
-            this.groupBoxLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_polygon)).BeginInit();
+            this.groupBoxLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_line)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +71,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 32);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
+            this.button1.Text = "Apply";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -113,6 +116,7 @@
             // 
             // groupBoxPoint
             // 
+            this.groupBoxPoint.Controls.Add(this.button_point_save);
             this.groupBoxPoint.Controls.Add(this.pictureBox_point);
             this.groupBoxPoint.Controls.Add(this.label_color_point);
             this.groupBoxPoint.Controls.Add(this.label2);
@@ -163,6 +167,7 @@
             // 
             // groupBoxPolygon
             // 
+            this.groupBoxPolygon.Controls.Add(this.button_poly_save);
             this.groupBoxPolygon.Controls.Add(this.label8);
             this.groupBoxPolygon.Controls.Add(this.textBox_poly_width);
             this.groupBoxPolygon.Controls.Add(this.pictureBox_polygon);
@@ -177,8 +182,43 @@
             this.groupBoxPolygon.Text = "Polygon";
             this.groupBoxPolygon.Enter += new System.EventHandler(this.groupBoxPolygon_Enter);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Outline width:";
+            // 
+            // textBox_poly_width
+            // 
+            this.textBox_poly_width.Location = new System.Drawing.Point(6, 32);
+            this.textBox_poly_width.Name = "textBox_poly_width";
+            this.textBox_poly_width.Size = new System.Drawing.Size(100, 20);
+            this.textBox_poly_width.TabIndex = 14;
+            // 
+            // pictureBox_polygon
+            // 
+            this.pictureBox_polygon.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox_polygon.Location = new System.Drawing.Point(66, 55);
+            this.pictureBox_polygon.Name = "pictureBox_polygon";
+            this.pictureBox_polygon.Size = new System.Drawing.Size(22, 13);
+            this.pictureBox_polygon.TabIndex = 13;
+            this.pictureBox_polygon.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Fill color:";
+            // 
             // groupBoxLine
             // 
+            this.groupBoxLine.Controls.Add(this.button_line_save);
             this.groupBoxLine.Controls.Add(this.pictureBox_line);
             this.groupBoxLine.Controls.Add(this.label7);
             this.groupBoxLine.Controls.Add(this.label6);
@@ -191,6 +231,34 @@
             this.groupBoxLine.TabIndex = 7;
             this.groupBoxLine.TabStop = false;
             this.groupBoxLine.Text = "Line";
+            // 
+            // pictureBox_line
+            // 
+            this.pictureBox_line.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox_line.Location = new System.Drawing.Point(66, 57);
+            this.pictureBox_line.Name = "pictureBox_line";
+            this.pictureBox_line.Size = new System.Drawing.Size(22, 13);
+            this.pictureBox_line.TabIndex = 14;
+            this.pictureBox_line.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(6, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Line color:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Line width:";
             // 
             // tbLineWidth
             // 
@@ -235,67 +303,35 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Select value:";
             // 
-            // label5
+            // button_point_save
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Fill color:";
+            this.button_point_save.Location = new System.Drawing.Point(119, 71);
+            this.button_point_save.Name = "button_point_save";
+            this.button_point_save.Size = new System.Drawing.Size(75, 23);
+            this.button_point_save.TabIndex = 13;
+            this.button_point_save.Text = "Save";
+            this.button_point_save.UseVisualStyleBackColor = true;
+            this.button_point_save.Click += new System.EventHandler(this.button_point_save_Click);
             // 
-            // pictureBox_polygon
+            // button_poly_save
             // 
-            this.pictureBox_polygon.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox_polygon.Location = new System.Drawing.Point(66, 55);
-            this.pictureBox_polygon.Name = "pictureBox_polygon";
-            this.pictureBox_polygon.Size = new System.Drawing.Size(22, 13);
-            this.pictureBox_polygon.TabIndex = 13;
-            this.pictureBox_polygon.TabStop = false;
+            this.button_poly_save.Location = new System.Drawing.Point(119, 71);
+            this.button_poly_save.Name = "button_poly_save";
+            this.button_poly_save.Size = new System.Drawing.Size(75, 23);
+            this.button_poly_save.TabIndex = 16;
+            this.button_poly_save.Text = "Save";
+            this.button_poly_save.UseVisualStyleBackColor = true;
+            this.button_poly_save.Click += new System.EventHandler(this.button_poly_save_Click);
             // 
-            // label6
+            // button_line_save
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Line width:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(6, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Line color:";
-            // 
-            // pictureBox_line
-            // 
-            this.pictureBox_line.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox_line.Location = new System.Drawing.Point(66, 57);
-            this.pictureBox_line.Name = "pictureBox_line";
-            this.pictureBox_line.Size = new System.Drawing.Size(22, 13);
-            this.pictureBox_line.TabIndex = 14;
-            this.pictureBox_line.TabStop = false;
-            // 
-            // textBox_poly_width
-            // 
-            this.textBox_poly_width.Location = new System.Drawing.Point(6, 32);
-            this.textBox_poly_width.Name = "textBox_poly_width";
-            this.textBox_poly_width.Size = new System.Drawing.Size(100, 20);
-            this.textBox_poly_width.TabIndex = 14;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Outline width:";
+            this.button_line_save.Location = new System.Drawing.Point(119, 71);
+            this.button_line_save.Name = "button_line_save";
+            this.button_line_save.Size = new System.Drawing.Size(75, 23);
+            this.button_line_save.TabIndex = 15;
+            this.button_line_save.Text = "Save";
+            this.button_line_save.UseVisualStyleBackColor = true;
+            this.button_line_save.Click += new System.EventHandler(this.button_line_save_Click);
             // 
             // LayerStyle
             // 
@@ -319,9 +355,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_point)).EndInit();
             this.groupBoxPolygon.ResumeLayout(false);
             this.groupBoxPolygon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_polygon)).EndInit();
             this.groupBoxLine.ResumeLayout(false);
             this.groupBoxLine.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_polygon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_line)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -355,5 +391,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox_poly_width;
+        private System.Windows.Forms.Button button_point_save;
+        private System.Windows.Forms.Button button_poly_save;
+        private System.Windows.Forms.Button button_line_save;
     }
 }

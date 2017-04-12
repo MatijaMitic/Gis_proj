@@ -37,6 +37,8 @@ namespace Gis_rekreacija
 
         List<VectorLayer> selectedLayers;
 
+        Dictionary<string,Dictionary<string, SharpMap.Styles.IStyle>> style_dict;
+
         int mode;
 
         public Form1()
@@ -47,6 +49,7 @@ namespace Gis_rekreacija
             this.checkedListBox1.AllowDrop = true;
 
             all_layers = new Dictionary<string, SharpMap.Layers.ILayer>();
+            style_dict = new Dictionary<string, Dictionary<string, SharpMap.Styles.IStyle>>();
 
             SharpMap.Layers.VectorLayer polygons = new SharpMap.Layers.VectorLayer("blabla");
             polygons.DataSource = new SharpMap.Data.Providers.PostGIS(connStr, tablename, geomname, idname);
@@ -82,7 +85,21 @@ namespace Gis_rekreacija
 
             FillSpatialQueryInitialData();
         }
-
+        public void AddStyles(VectorLayer vl, Dictionary<string, SharpMap.Styles.IStyle> styles) {
+            if (style_dict.ContainsKey(vl.LayerName)) {
+                style_dict[vl.LayerName] = styles;
+            }
+            else
+            {
+                style_dict.Add(vl.LayerName, styles);
+            }
+        }
+        public Dictionary<string, SharpMap.Styles.IStyle> GetStyles(string layer_name) {
+            if (style_dict.ContainsKey(layer_name))
+                return style_dict[layer_name];
+            else
+                return null;
+        }
         public void AddLabelLayer(LabelLayer labelLayer) {
             all_layers.Add(labelLayer.ToString(), labelLayer);
             mapBox1.Map.Layers.Add(labelLayer);
@@ -235,7 +252,7 @@ namespace Gis_rekreacija
                 var layer = all_layers[layerName];
 
                 LayerStyle styleForm = new LayerStyle((VectorLayer)layer);
-
+                styleForm.mainForm = this;
                 styleForm.Show();
 
             }
@@ -251,7 +268,7 @@ namespace Gis_rekreacija
                     if (layer.GetType() == typeof(VectorLayer))
                     {
                         LayerStyle styleForm = new LayerStyle((VectorLayer)layer);
-
+                        styleForm.mainForm = this;
                         styleForm.Show();
 
                         mapBox1.Refresh();
