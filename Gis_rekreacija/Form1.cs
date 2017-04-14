@@ -826,19 +826,32 @@ namespace Gis_rekreacija
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            mode = (int)Modes.DrawRectangle;
-            mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.QueryBox;
-            //ostavi upaljen samo jedan selektovani layer
             var temp_layer_name = this.checkedListBox1.SelectedItem.ToString();
             var temp_layer = this.all_layers[temp_layer_name];
-            mapBox1.Map.Layers.Clear();
-            mapBox1.Map.Layers.Add(temp_layer);
-            mapBox1.Refresh();
-            //ostale sve izbaci iz mapboxa
+            if (mapBox1.Map.Layers[mapBox1.Map.Layers.IndexOf(temp_layer)].Enabled)
+            {
+                mode = (int)Modes.DrawRectangle;
+                mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.QueryBox;
+                //ostavi upaljen samo jedan selektovani layer
+                mapBox1.Map.Layers.Clear();
+                mapBox1.Map.Layers.Add(temp_layer);
+                mapBox1.Refresh();
+                //ostale sve izbaci iz mapboxa
+            }
         }
-        private void mapBox1_MapQuerid(FeatureDataTable data)
+        private void mapBox1_MapQuerid(FeatureDataTable fdt)
         {
-            //
+            clearSelectionLayers();
+            Color color = Color.Yellow;
+            SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(fdt.TableName + "Selection");
+            laySelected.DataSource = new GeometryProvider(fdt);
+            laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
+            laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
+            laySelected.Style.Line = new System.Drawing.Pen(color);
+            this.mapBox1.Map.Layers.Add(laySelected);
+            this.all_layers.Add(laySelected.LayerName, laySelected);
+            this.selectedLayers.Add(laySelected);
+            this.checkedListBox1.Items.Add(laySelected.LayerName,true);
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
