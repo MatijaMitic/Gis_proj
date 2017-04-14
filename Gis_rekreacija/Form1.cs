@@ -742,12 +742,34 @@ namespace Gis_rekreacija
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            if (mode == (int)Modes.DrawRectangle)
+            {
+                //return all layers
+                mapBox1.Map.Layers.Clear();
+                foreach (ILayer i in all_layers.Values)
+                {
+                    mapBox1.Map.Layers.Add(i);
+                }
+
+                mapBox1.Refresh();
+            }
             mode = (int)Modes.Selection;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.None;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            if (mode == (int)Modes.DrawRectangle)
+            {
+                //return all layers
+                mapBox1.Map.Layers.Clear();
+                foreach (ILayer i in all_layers.Values)
+                {
+                    mapBox1.Map.Layers.Add(i);
+                }
+
+                mapBox1.Refresh();
+            }
             mode = (int)Modes.Pan;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.Pan;
         }
@@ -817,11 +839,21 @@ namespace Gis_rekreacija
         private void mapBox1_MapQuerid(FeatureDataTable data)
         {
             //
-            //throw new NotImplementedException();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            if (mode == (int)Modes.DrawRectangle)
+            {
+                //return all layers
+                mapBox1.Map.Layers.Clear();
+                foreach (ILayer i in all_layers.Values)
+                {
+                    mapBox1.Map.Layers.Add(i);
+                }
+
+                mapBox1.Refresh();
+            }
             mode = (int)Modes.ZoomWindow;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.ZoomWindow;
         }
