@@ -126,7 +126,11 @@ namespace Gis_rekreacija
             this.checkedListBox1.Items.Remove(layer_name);
             VectorLayer lay = (VectorLayer)all_layers[layer_name];
             mapBox1.Map.Layers.Remove(lay);
+            //brisi selection layere i provera za label layere
             mapBox1.Refresh();
+        }
+        public VectorLayer GetLayer(string layer_name) {
+            return (VectorLayer)all_layers[layer_name];
         }
         #endregion
         private void mapBox1_MouseMove(GeoAPI.Geometries.Coordinate worldPos, MouseEventArgs imagePos)
@@ -759,14 +763,15 @@ namespace Gis_rekreacija
             if (checkedListBox1.SelectedIndex >= 0)
             {
                 var layerName = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
+                //ako je selection -> skip
                 if (mapBox1.Map.Layers.GetLayerByName(layerName).Enabled) // dal je vidljiv
                 {
                     var layer = all_layers[layerName];
                     if (layer.GetType() == typeof(VectorLayer))
                     {
                         int selectedIndex = 0;
-                        LabelForm lf = new LabelForm((VectorLayer)layer, selectedIndex);
-                        lf.mainForm = this;
+
+                        LabelForm lf = new LabelForm((VectorLayer)layer, selectedIndex, this);
                         lf.ShowDialog();
 
                         mapBox1.Refresh();

@@ -20,12 +20,14 @@ namespace Gis_rekreacija
         {
             InitializeComponent();
         }
-        public LabelForm(VectorLayer layer, int selInd)
+        public LabelForm(VectorLayer layer, int selInd, Form1 m)
         {
             InitializeComponent();
             this.selectedIndex = selInd;
             this.v_layer = layer;
-            DataRowCollection dtRows = DataLayer.DataLayer.GetLayerColumns(layer);
+            DataRowCollection dtRows;
+            mainForm = m;
+            dtRows = DataLayer.DataLayer.GetLayerColumns(layer);
             listBox1.Items.Add("None");//0
             foreach (DataRow row in dtRows)
             {
