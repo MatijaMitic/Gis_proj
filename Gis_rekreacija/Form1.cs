@@ -85,6 +85,7 @@ namespace Gis_rekreacija
 
             FillSpatialQueryInitialData();
         }
+        #region PublicF
         public void AddStyles(VectorLayer vl, Dictionary<string, SharpMap.Styles.IStyle> styles) {
             if (style_dict.ContainsKey(vl.LayerName)) {
                 style_dict[vl.LayerName] = styles;
@@ -113,7 +114,21 @@ namespace Gis_rekreacija
                 this.checkedListBox1.Items.Remove(labelLayer);
             }
         }
-
+        public void AddLayer(string layer_name,string table_name) {
+            SharpMap.Layers.VectorLayer lay = new SharpMap.Layers.VectorLayer(layer_name);
+            lay.DataSource = new SharpMap.Data.Providers.PostGIS(connStr, table_name, geomname, idname);
+            all_layers.Add(lay.ToString(), lay);
+            mapBox1.Map.Layers.Add(lay);
+            this.checkedListBox1.Items.Add(lay.ToString(), true);
+            mapBox1.Refresh();
+        }
+        public void RemoveLayer(string layer_name) {
+            this.checkedListBox1.Items.Remove(layer_name);
+            VectorLayer lay = (VectorLayer)all_layers[layer_name];
+            mapBox1.Map.Layers.Remove(lay);
+            mapBox1.Refresh();
+        }
+        #endregion
         private void mapBox1_MouseMove(GeoAPI.Geometries.Coordinate worldPos, MouseEventArgs imagePos)
         {
             //Sets up a array to contain the x and y coordinates
@@ -758,6 +773,19 @@ namespace Gis_rekreacija
                     }
                 }
             }
+        }
+
+        private void button_add_new_lay_Click(object sender, EventArgs e)
+        {
+            //show dialog
+            AddLayer add_lay_form = new AddLayer();
+            add_lay_form.main_form = this;
+            add_lay_form.ShowDialog();
+        }
+
+        private void button_remove_lay_Click(object sender, EventArgs e)
+        {
+            RemoveLayer(this.checkedListBox1.SelectedItem.ToString());
         }
     }
 }

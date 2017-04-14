@@ -57,8 +57,12 @@ namespace Gis_rekreacija
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
+            this.button_add_new_lay = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_remove_lay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.mapDigitizeGeometriesToolStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mapBox1
@@ -343,11 +347,43 @@ namespace Gis_rekreacija
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button_add_new_lay
+            // 
+            this.button_add_new_lay.Location = new System.Drawing.Point(6, 19);
+            this.button_add_new_lay.Name = "button_add_new_lay";
+            this.button_add_new_lay.Size = new System.Drawing.Size(75, 23);
+            this.button_add_new_lay.TabIndex = 12;
+            this.button_add_new_lay.Text = "Add";
+            this.button_add_new_lay.UseVisualStyleBackColor = true;
+            this.button_add_new_lay.Click += new System.EventHandler(this.button_add_new_lay_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button_remove_lay);
+            this.groupBox2.Controls.Add(this.button_add_new_lay);
+            this.groupBox2.Location = new System.Drawing.Point(13, 487);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(116, 87);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Add/Remove layer";
+            // 
+            // button_remove_lay
+            // 
+            this.button_remove_lay.Location = new System.Drawing.Point(6, 48);
+            this.button_remove_lay.Name = "button_remove_lay";
+            this.button_remove_lay.Size = new System.Drawing.Size(75, 23);
+            this.button_remove_lay.TabIndex = 13;
+            this.button_remove_lay.Text = "Remove";
+            this.button_remove_lay.UseVisualStyleBackColor = true;
+            this.button_remove_lay.Click += new System.EventHandler(this.button_remove_lay_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 663);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mapDigitizeGeometriesToolStrip1);
             this.Controls.Add(this.groupBox1);
@@ -364,6 +400,7 @@ namespace Gis_rekreacija
             this.groupBox1.PerformLayout();
             this.mapDigitizeGeometriesToolStrip1.ResumeLayout(false);
             this.mapDigitizeGeometriesToolStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,6 +432,9 @@ namespace Gis_rekreacija
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
         private Button button1;
+        private Button button_add_new_lay;
+        private GroupBox groupBox2;
+        private Button button_remove_lay;
     }
 }
 

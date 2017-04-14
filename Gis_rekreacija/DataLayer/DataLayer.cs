@@ -42,5 +42,18 @@ namespace Gis_rekreacija.DataLayer
             dt = ds.Tables[0];
             return dt.Rows;
         }
+
+        public static DataRowCollection GetTablesFromDB(string sample) {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+            NpgsqlConnection conn = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");
+            conn.Open();
+            string sql = "SELECT table_name FROM information_schema.tables where table_name like '%"+sample+"' ORDER BY table_schema,table_name; ";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt.Rows;
+        }
     }
 }

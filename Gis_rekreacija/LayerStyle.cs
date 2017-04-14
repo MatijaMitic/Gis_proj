@@ -47,7 +47,7 @@ namespace Gis_rekreacija
             }
             else if (row == "MultiPolygon")
             {
-                mode = "polygone";
+                mode = "polygon";
             }
             else {//treba da se doda provera
                 mode = "line";
