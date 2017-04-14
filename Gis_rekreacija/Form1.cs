@@ -22,7 +22,7 @@ using System.Windows.Forms;
 
 namespace Gis_rekreacija
 {
-    enum Modes { Selection = 1, Pan = 2, DrawPolygon = 3, SelectFirstFeature = 4, SelectSecondFeatures = 5, Thu, Fri };
+    enum Modes { Selection = 1, Pan = 2, DrawPolygon = 3, SelectFirstFeature = 4, SelectSecondFeatures = 5, DrawRectangle=6, ZoomWindow=7 };
 
     public partial class Form1 : Form
     {
@@ -754,6 +754,15 @@ namespace Gis_rekreacija
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            if (mode == (int)Modes.DrawRectangle) {
+                //return all layers
+                mapBox1.Map.Layers.Clear();
+                foreach (ILayer i in all_layers.Values) {
+                    mapBox1.Map.Layers.Add(i);
+                }
+
+                mapBox1.Refresh();
+            }
             mode = (int)Modes.DrawPolygon;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.DrawPolygon;
         }
@@ -792,5 +801,30 @@ namespace Gis_rekreacija
         {
             RemoveLayer(this.checkedListBox1.SelectedItem.ToString());
         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            mode = (int)Modes.DrawRectangle;
+            mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.QueryBox;
+            //ostavi upaljen samo jedan selektovani layer
+            var temp_layer_name = this.checkedListBox1.SelectedItem.ToString();
+            var temp_layer = this.all_layers[temp_layer_name];
+            mapBox1.Map.Layers.Clear();
+            mapBox1.Map.Layers.Add(temp_layer);
+            mapBox1.Refresh();
+            //ostale sve izbaci iz mapboxa
+        }
+        private void mapBox1_MapQuerid(FeatureDataTable data)
+        {
+            //
+            //throw new NotImplementedException();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            mode = (int)Modes.ZoomWindow;
+            mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.ZoomWindow;
+        }
+        
     }
 }

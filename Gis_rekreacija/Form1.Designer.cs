@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using SharpMap.Data;
 
 namespace Gis_rekreacija
 {
@@ -55,11 +57,13 @@ namespace Gis_rekreacija
             this.mapDigitizeGeometriesToolStrip1 = new SharpMap.Forms.ToolBar.MapDigitizeGeometriesToolStrip(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button_add_new_lay = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_remove_lay = new System.Windows.Forms.Button();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.mapDigitizeGeometriesToolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,6 +88,7 @@ namespace Gis_rekreacija
             this.mapBox1.WheelZoomMagnitude = -2D;
             this.mapBox1.MouseMove += new SharpMap.Forms.MapBox.MouseEventHandler(this.mapBox1_MouseMove);
             this.mapBox1.MouseUp += new SharpMap.Forms.MapBox.MouseEventHandler(this.mapBox1_MouseUp);
+            this.mapBox1.MapQueried += new SharpMap.Forms.MapBox.MapQueryHandler(this.mapBox1_MapQuerid);
             this.mapBox1.GeometryDefined += new SharpMap.Forms.MapBox.GeometryDefinedHandler(this.mapBox1_GeomDefined);
             // 
             // label1
@@ -299,6 +304,8 @@ namespace Gis_rekreacija
             this.mapDigitizeGeometriesToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
+            this.toolStripButton5,
+            this.toolStripButton4,
             this.toolStripButton3});
             this.mapDigitizeGeometriesToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.mapDigitizeGeometriesToolStrip1.MapControl = null;
@@ -326,6 +333,16 @@ namespace Gis_rekreacija
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "Pan";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "Info rectangle";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton3
             // 
@@ -377,6 +394,16 @@ namespace Gis_rekreacija
             this.button_remove_lay.Text = "Remove";
             this.button_remove_lay.UseVisualStyleBackColor = true;
             this.button_remove_lay.Click += new System.EventHandler(this.button_remove_lay_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "Zoom to rectangle";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // Form1
             // 
@@ -435,6 +462,8 @@ namespace Gis_rekreacija
         private Button button_add_new_lay;
         private GroupBox groupBox2;
         private Button button_remove_lay;
+        private ToolStripButton toolStripButton5;
+        private ToolStripButton toolStripButton4;
     }
 }
 
