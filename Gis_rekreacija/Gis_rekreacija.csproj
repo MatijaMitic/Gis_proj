@@ -260,14 +260,18 @@
   <ItemGroup>
     <Content Include="GdalConfiguration.vb" />
     <Content Include="GdalNativeConfiguration.vb" />
+    <Content Include="Resources\Edition_zoom_in_selection-512.png" />
+    <Content Include="Resources\Iconsmind-Outline-Cursor-Select.ico" />
+    <Content Include="Resources\Maps-Polygon-icon.png" />
+    <Content Include="Resources\push-512.png" />
+    <Content Include="Resources\route.png" />
+    <Content Include="Resources\select_2-128.png" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
