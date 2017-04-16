@@ -11,6 +11,7 @@ namespace Gis_rekreacija.DataLayer
 {
     public static class DataLayer
     {
+        public static NpgsqlConnection DbConnection;
         public static DataRowCollection GetLayerColumns(VectorLayer layer) {
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
@@ -54,6 +55,40 @@ namespace Gis_rekreacija.DataLayer
             da.Fill(ds);
             dt = ds.Tables[0];
             return dt.Rows;
+        }
+        public static void CreateDatabaseConnection()
+        {
+            DbConnection = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");
+        }
+
+        public static void OpenConnection()
+        {
+            if (DbConnection != null)
+            {
+                DbConnection.Open();
+            }
+        }
+
+        public static void CloseConnection()
+        {
+            if (DbConnection != null)
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public static string CreateQueryIntersects(params object[] args)
+        {
+            string sql = "SELECT gid, fclass, name, geom AS _smtmp_ FROM " + args[0] + " WHERE ST_Intersects(ST_SetSRID(ST_GeomFromText('" + args[1] + "'), 3857),geom)";
+
+            return sql;
+        }
+
+        public static string CreateQueryDWithin(params object[] args)
+        {
+            string sql = "SELECT gid, fclass, name, geom AS _smtmp_ FROM " + args[0] + " WHERE ST_DWithin(ST_SetSRID(ST_MakePoint(" + args[1] + ", " + args[2] + "), 3857),geom," + args[3] + ")";
+
+            return sql;
         }
     }
 }
