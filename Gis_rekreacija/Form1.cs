@@ -134,6 +134,12 @@ namespace Gis_rekreacija
             mapBox1.Map.Layers.Remove(lay);
             all_layers.Remove(layer_name);
             //brisi selection layere i provera za label layere
+            if (this.checkedListBox1.Items.Contains(layer_name + " Labels")) {
+                this.checkedListBox1.Items.Remove(layer_name + " Labels");
+                LabelLayer lay_lab = (LabelLayer)all_layers[layer_name + " Labels"];
+                mapBox1.Map.Layers.Remove(lay_lab);
+                all_layers.Remove(layer_name + " Labels");
+            }
             mapBox1.Refresh();
         }
         public VectorLayer GetLayer(string layer_name) {
@@ -890,11 +896,15 @@ namespace Gis_rekreacija
 
         private void button_remove_lay_Click(object sender, EventArgs e)
         {
+            if (this.checkedListBox1.SelectedItem.ToString().Contains("Selection") || this.checkedListBox1.SelectedItem.ToString().Contains("Labels"))
+                return;
             RemoveLayer(this.checkedListBox1.SelectedItem.ToString());
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            if (checkedListBox1.SelectedIndex < 0)
+                return;
             var temp_layer_name = this.checkedListBox1.SelectedItem.ToString();
             var temp_layer = this.all_layers[temp_layer_name];
             if (mapBox1.Map.Layers[mapBox1.Map.Layers.IndexOf(temp_layer)].Enabled)
