@@ -769,8 +769,10 @@ namespace Gis_rekreacija
 
             VectorLayer laySelected = CreateNewSelectionLayer(layer, fdt, layerStyle);
 
+            string selectionLayerName = GenerateSelectionLayerName(layer.LayerName);
             if (fdt.Count > 0) {
-                selected_datasets.Add(layer.LayerName + "Selection", ds);
+                // selected_datasets.Add(layer.LayerName + "Selection", ds);
+                selected_datasets.Add(selectionLayerName, ds);
                 this.button2.Enabled = true;
                 selectedLayers.Add(laySelected);
             }
