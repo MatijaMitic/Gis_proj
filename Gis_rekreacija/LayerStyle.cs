@@ -58,7 +58,7 @@ namespace Gis_rekreacija
     {
             var oldStyle = this.layer.Style;
      
-            layer.Theme=new SharpMap.Rendering.Thematics.UniqueValuesTheme<string>("fclass", styles, oldStyle);
+            layer.Theme=new SharpMap.Rendering.Thematics.UniqueValuesTheme<string>(attribute_column, styles, oldStyle);
             mainForm.AddStyles(this.layer, this.styles);
     }
 

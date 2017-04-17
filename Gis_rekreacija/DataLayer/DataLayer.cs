@@ -13,6 +13,9 @@ namespace Gis_rekreacija.DataLayer
     {
         public static NpgsqlConnection DbConnection;
         public static DataRowCollection GetLayerColumns(VectorLayer layer) {
+            if (layer.LayerName.Contains("Selection")) {
+                return null;
+            }
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
             NpgsqlConnection conn = new NpgsqlConnection("server=" + DbConfig.host + ";port=" + DbConfig.port + ";user=" + DbConfig.username + ";pwd=" + DbConfig.password + ";database=" + DbConfig.database + "");

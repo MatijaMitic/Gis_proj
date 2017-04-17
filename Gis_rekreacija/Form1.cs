@@ -34,6 +34,7 @@ namespace Gis_rekreacija
         string idname = "gid";
 
         Dictionary<string, SharpMap.Layers.ILayer> all_layers;
+        Dictionary<string, DataSet> selected_datasets;
 
         List<VectorLayer> selectedLayers;
 
@@ -52,6 +53,7 @@ namespace Gis_rekreacija
 
             all_layers = new Dictionary<string, SharpMap.Layers.ILayer>();
             style_dict = new Dictionary<string, Dictionary<string, SharpMap.Styles.IStyle>>();
+            selected_datasets = new Dictionary<string, DataSet>();
 
             SharpMap.Layers.VectorLayer polygons = new SharpMap.Layers.VectorLayer("blabla");
             polygons.DataSource = new SharpMap.Data.Providers.PostGIS(connStr, tablename, geomname, idname);
@@ -321,6 +323,8 @@ namespace Gis_rekreacija
                 }
             }
             selectedLayers = new List<VectorLayer>();
+            selected_datasets = new Dictionary<string, DataSet>();
+            this.button2.Enabled = false;
         }
         private void insertSelectionLayers()
         {
@@ -748,13 +752,17 @@ namespace Gis_rekreacija
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, DataLayer.DataLayer.DbConnection);
             ds.Reset();
             da.Fill(ds);
-
+            
             fdt = CreateFeatureDataTable(ds);
 
             VectorLayer laySelected = CreateNewSelectionLayer(layer, fdt, layerStyle);
 
-            if (fdt.Count > 0)
+            if (fdt.Count > 0) {
+                selected_datasets.Add(layer.LayerName + "Selection", ds);
+                this.button2.Enabled = true;
                 selectedLayers.Add(laySelected);
+            }
+                
         }
 
         private VectorLayer CreateNewSelectionLayer(ILayer layer, FeatureDataTable fdt, Brush style)
@@ -921,16 +929,24 @@ namespace Gis_rekreacija
         private void mapBox1_MapQuerid(FeatureDataTable fdt)
         {
             clearSelectionLayers();
-            Color color = Color.Yellow;
-            SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(fdt.TableName + "Selection");
-            laySelected.DataSource = new GeometryProvider(fdt);
-            laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
-            laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
-            laySelected.Style.Line = new System.Drawing.Pen(color);
-            this.mapBox1.Map.Layers.Add(laySelected);
-            this.all_layers.Add(laySelected.LayerName, laySelected);
-            this.selectedLayers.Add(laySelected);
-            this.checkedListBox1.Items.Add(laySelected.LayerName,true);
+            if (fdt.Rows.Count > 0)
+            {
+                Color color = Color.Yellow;
+                SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(fdt.TableName + "Selection");
+                laySelected.DataSource = new GeometryProvider(fdt);
+                laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
+                laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
+                laySelected.Style.Line = new System.Drawing.Pen(color);
+                this.mapBox1.Map.Layers.Add(laySelected);
+                this.all_layers.Add(laySelected.LayerName, laySelected);
+                this.selectedLayers.Add(laySelected);
+                this.checkedListBox1.Items.Add(laySelected.LayerName, true);
+
+                DataSet ds = new DataSet();
+                ds.Tables.Add(fdt);
+                selected_datasets.Add(laySelected.LayerName, ds);
+                this.button2.Enabled = true;
+            }
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -1180,6 +1196,22 @@ namespace Gis_rekreacija
 
 
             DataLayer.DataLayer.CloseConnection();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //open feature table
+            if (checkedListBox1.SelectedIndex > -1) {
+                if (selected_datasets.Keys.Contains(checkedListBox1.SelectedItem.ToString()))
+                {
+                    DataSet ds = selected_datasets[checkedListBox1.SelectedItem.ToString()];
+                    if (ds != null)
+                    {
+                        FeatureTable ft = new FeatureTable(ds);
+                        ft.Show();
+                    }
+                }
+            }
         }
     }
 }
