@@ -770,7 +770,10 @@ namespace Gis_rekreacija
             VectorLayer laySelected = CreateNewSelectionLayer(layer, fdt, layerStyle);
 
             if (fdt.Count > 0) {
-                selected_datasets.Add(layer.LayerName + "Selection", ds);
+                if (selected_datasets.Keys.Contains(layer.LayerName + "Selection"))
+                    selected_datasets[layer.LayerName + "Selection"] = ds;
+                else
+                    selected_datasets.Add(layer.LayerName + "Selection", ds);
                 this.button2.Enabled = true;
                 selectedLayers.Add(laySelected);
             }
@@ -1117,6 +1120,8 @@ namespace Gis_rekreacija
                     // laySelected.Style.PointColor = new Brush(System.Drawing.Color.Yellow);
                     selectedLayers.Add(laySelected);
                     //this.selectionLayer = laySelected;
+                    selected_datasets.Add(laySelected.LayerName, ds);
+                    button2.Enabled = true;
                 }
 
                 this.insertSelectionLayers();
