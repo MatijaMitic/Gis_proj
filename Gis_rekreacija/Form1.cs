@@ -22,6 +22,7 @@ using System.Windows.Forms;
 
 namespace Gis_rekreacija
 {
+    //dummy comment
     enum Modes { Selection = 1, Pan = 2, DrawPolygon = 3, SelectFirstFeature = 4, SelectSecondFeatures = 5, DrawRectangle=6, ZoomWindow=7 };
 
     public partial class Form1 : Form
