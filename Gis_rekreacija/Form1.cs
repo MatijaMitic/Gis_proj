@@ -22,6 +22,7 @@ using System.Windows.Forms;
 
 namespace Gis_rekreacija
 {
+    //dummy comment
     enum Modes { Selection = 1, Pan = 2, DrawPolygon = 3, SelectFirstFeature = 4, SelectSecondFeatures = 5, DrawRectangle=6, ZoomWindow=7 };
 
     public partial class Form1 : Form
@@ -336,6 +337,14 @@ namespace Gis_rekreacija
                     mapBox1.Map.Layers.Add(lay);
                     this.checkedListBox1.Items.Add(lay.ToString(), true);
                     this.all_layers.Add(lay.ToString(), lay);
+                }
+                else
+                {
+                    //TODO DONE - drugi put nece da se reselektuje
+                    var layerToRemove = mapBox1.Map.Layers.FirstOrDefault(l => l.LayerName == lay.ToString());
+                    var indexInsertAt = mapBox1.Map.Layers.IndexOf(layerToRemove);
+                    mapBox1.Map.Layers.Remove(layerToRemove);
+                    mapBox1.Map.Layers.Insert(indexInsertAt, lay);
                 }
             }
             //mapBox1.Map.ZoomToBox(selectedLayers[0].Envelope);
@@ -661,12 +670,15 @@ namespace Gis_rekreacija
 
         private void btnSelectFirstObject_Click(object sender, EventArgs e)
         {
+            
+            geometriesGidModeFirst = new List<int>(); //IMPORTANT
             queryModeFirstObject = true;
             queryModeSecondObject = false;
         }
 
         private void btnSelectSecondObject_Click(object sender, EventArgs e)
-        {
+        {          
+            geometriesGidModeSecond = new List<int>(); //IMPORTANT
             queryModeFirstObject = false;
             queryModeSecondObject = true;
         }
@@ -767,13 +779,36 @@ namespace Gis_rekreacija
 
         private VectorLayer CreateNewSelectionLayer(ILayer layer, FeatureDataTable fdt, Brush style)
         {
-            SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(layer.LayerName + "Selection");
+            // SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(layer.LayerName + "Selection");
+            string selectionLayerName = GenerateSelectionLayerName(layer.LayerName);
+            SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(selectionLayerName);
             laySelected.DataSource = new GeometryProvider(fdt);
             laySelected.Style.Fill = style;
             laySelected.Style.PointColor = style;
             laySelected.Style.Line = new System.Drawing.Pen(style);
 
             return laySelected;
+        }
+
+        private string GenerateSelectionLayerName(string layerName)
+        {
+            string selectionLayerName = "";
+
+            if (queryModeFirstObject)
+            {
+                selectionLayerName = layerName + "1Selection";
+            }
+            else if (queryModeSecondObject)
+            {
+                selectionLayerName = layerName + "2Selection";
+            }
+            else
+            {
+                selectionLayerName = layerName + "Selection";
+            }
+
+            
+            return selectionLayerName;
         }
 
         private FeatureDataTable CreateFeatureDataTable(DataSet ds)
@@ -979,83 +1014,124 @@ namespace Gis_rekreacija
             var firstLayerName = firstLayer.DataSource.GetFeature(1).Table.TableName;
             var secondLayerName = secondLayer.DataSource.GetFeature(1).Table.TableName;
 
-            var queryColumns = firstLayerName + ".geom" + "," + secondLayerName + ".geom";
-            var queryFrom = firstLayerName + "," + secondLayerName;
 
-            string sql = "";
-            if (!distanceMode)
+            string queryColumns = firstLayerName + ".geom" + "," + secondLayerName + ".geom";
+            string queryFrom = firstLayerName + "," + secondLayerName;
+            string select_queryColumns = firstLayerName + ".geom" + "," + secondLayerName + ".geom";
+
+            if (firstLayerName == secondLayerName)
             {
-                string firstGidSQLList = CreateSqlForGidList(geometriesGidModeFirst);
-                string secondGidSQLList = CreateSqlForGidList(geometriesGidModeSecond);
+                select_queryColumns = firstLayerName + ".geom";
+                queryFrom = firstLayerName;
+            }
+
+                
+            string sql = "";
+            bool oneToOne = false;
+            string firstGidSQLList = CreateSqlForGidList(geometriesGidModeFirst);
+            string secondGidSQLList = CreateSqlForGidList(geometriesGidModeSecond);
+
+            if (!distanceMode)
+            {             
                 string operation = cbOperation.SelectedItem.ToString();
 
-                sql = "SELECT " + queryColumns +
-                             " FROM " + queryFrom +
-                             " WHERE ST_" + operation + "(" + firstLayerName + ".geom" + "," + secondLayerName + ".geom)" +
-                             " AND " + firstLayerName + ".gid IN " + firstGidSQLList +
-                             " AND " + secondLayerName + ".gid IN " + secondGidSQLList;
+                    sql = "SELECT " + select_queryColumns +
+                      " FROM " + queryFrom +
+                      " WHERE ST_" + operation + "(" + firstLayerName + ".geom" + "," + secondLayerName + ".geom)" +
+                      " AND " + firstLayerName + ".gid IN " + firstGidSQLList +
+                      " AND " + secondLayerName + ".gid IN " + secondGidSQLList;
             }
             else
             {
-                var select_queryColumns = secondLayerName + ".geom";
-                int gidOfSelectedObject = geometriesGidModeFirst.FirstOrDefault();
-                int meters = Int32.Parse(tbDistanceMeters.Text.ToString());
-                int numberOfObjects = Int32.Parse(tbObjectNumber.Text.ToString());
+                if (geometriesGidModeFirst.Count == 1 && geometriesGidModeSecond.Count == 1)
+                {
+                    oneToOne = true;
+                    sql = "SELECT ST_Distance(" + queryColumns + ")" +
+                            " FROM " + queryFrom +
+                            " WHERE " + firstLayerName + ".gid IN " + firstGidSQLList +
+                            " AND " + secondLayerName + ".gid IN " + secondGidSQLList;
+                }
+                else
+                {
+                    select_queryColumns = secondLayerName + ".geom";
+                    var gidsOfSelectedObject = CreateSqlForGidList(geometriesGidModeFirst);
+                    int meters = Int32.Parse(tbDistanceMeters.Text.ToString());
+                    int numberOfObjects;
+                    bool parsedNumberOfObjects = Int32.TryParse(tbObjectNumber.Text.ToString(), out numberOfObjects);
 
-                sql = "SELECT " + select_queryColumns +
-                      " FROM " + queryFrom +
-                      " WHERE " + firstLayerName + ".gid=" + gidOfSelectedObject +
-                      " AND ST_DWithin(" + queryColumns + ", " + meters + ") ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects;
+                    sql = "SELECT " + select_queryColumns +
+                          " FROM " + queryFrom +
+                          " WHERE " + firstLayerName + ".gid IN " + gidsOfSelectedObject +
+                          " AND ST_DWithin(" + queryColumns + ", " + meters + ")";
+
+                    if (parsedNumberOfObjects)
+                    {
+                        sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects;
+                    }      
+                }
+
+               
             }
 
 
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             da.Fill(ds);
 
-            dt = ds.Tables[0];
-
-            FeatureDataTable fdt = new FeatureDataTable();
-
-            foreach (DataColumn col in ds.Tables[0].Columns)
+            if (oneToOne && distanceMode)
             {
-                fdt.Columns.Add(col.Namespace, col.DataType);
+                var row = ds.Tables[0].Rows[0].ItemArray[0];
+                tbDistanceMeters.Text = row.ToString();
             }
-
-            foreach (DataRow row in ds.Tables[0].Rows)
+            else
             {
-                foreach (var rowItem in row.ItemArray)
+                dt = ds.Tables[0];
+
+                FeatureDataTable fdt = new FeatureDataTable();
+
+                foreach (DataColumn col in ds.Tables[0].Columns)
                 {
-                    FeatureDataRow fDR = fdt.NewRow();
-                    fDR.ItemArray = row.ItemArray;
-                    IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
-                    NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
-                    byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(rowItem.ToString());
-                    fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
-                    fdt.AddRow(fDR);
+                    fdt.Columns.Add(col.Namespace, col.DataType);
                 }
-            }
 
-            if (fdt.Rows.Count > 0)
-            {
-                clearSelectionLayers();
-                VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
-                laySelected.DataSource = new GeometryProvider(fdt);
-                laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
-                laySelected.Style.Line = new Pen(System.Drawing.Color.Yellow);
-                // laySelected.Style.PointColor = new Brush(System.Drawing.Color.Yellow);
-                selectedLayers.Add(laySelected);
-                //this.selectionLayer = laySelected;
-            }
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    foreach (var rowItem in row.ItemArray)
+                    {
+                        FeatureDataRow fDR = fdt.NewRow();
+                        fDR.ItemArray = row.ItemArray;
+                        IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                        NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
+                        byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(rowItem.ToString());
+                        fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+                        fdt.AddRow(fDR);
+                    }
+                }
 
+                if (fdt.Rows.Count > 0)
+                {
+                    clearSelectionLayers();
+                    VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
+                    laySelected.DataSource = new GeometryProvider(fdt);
+                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
+                    laySelected.Style.Line = new Pen(System.Drawing.Color.Yellow);
+                    // laySelected.Style.PointColor = new Brush(System.Drawing.Color.Yellow);
+                    selectedLayers.Add(laySelected);
+                    //this.selectionLayer = laySelected;
+                }
+
+                this.insertSelectionLayers();
+            }
+        
             conn.Close();
 
-            this.insertSelectionLayers();
         }
 
         private void btnDisableSelection_Click(object sender, EventArgs e)
         {
             queryModeFirstObject = false;
             queryModeSecondObject = false;
+            geometriesGidModeFirst = new List<int>();
+            geometriesGidModeSecond = new List<int>();
         }
 
         bool distanceMode = false;
@@ -1066,9 +1142,9 @@ namespace Gis_rekreacija
             if (distanceCheckbox.Checked)
             {
                 cbOperation.Enabled = false;
-                cbToggleSecondObject.Enabled = false;
-                btnSelectSecondObject.Enabled = false;
-                lbSecondObjectInfo.Enabled = false;
+                //cbToggleSecondObject.Enabled = false;
+                //btnSelectSecondObject.Enabled = false;
+                //lbSecondObjectInfo.Enabled = false;
                 tbDistanceMeters.Enabled = true;
                 tbObjectNumber.Enabled = true;
                 distanceMode = true;
@@ -1076,9 +1152,9 @@ namespace Gis_rekreacija
             else
             {
                 cbOperation.Enabled = true;
-                cbToggleSecondObject.Enabled = true;
-                btnSelectSecondObject.Enabled = true;
-                lbSecondObjectInfo.Enabled = true;
+                //cbToggleSecondObject.Enabled = true;
+                //btnSelectSecondObject.Enabled = true;
+                //lbSecondObjectInfo.Enabled = true;
                 tbDistanceMeters.Enabled = false;
                 tbObjectNumber.Enabled = false;
                 distanceMode = false;
@@ -1103,7 +1179,7 @@ namespace Gis_rekreacija
             var queryColumns = firstLayerName + ".geom" + "," + roadLayerName + ".geom";
             var queryFrom = firstLayerName + "," + roadLayerName;
 
-            var select_queryColumns = roadLayerName + ".source, " + roadLayerName + ".target";
+            var select_queryColumns = roadLayerName + ".source, " + roadLayerName + ".target, " + roadLayerName + ".gid";
 
             int gidOfSelectedObject = geometriesGidModeFirst.FirstOrDefault();
 
@@ -1162,17 +1238,20 @@ namespace Gis_rekreacija
             string get_features = "select the_geom from putevi_srbija_vertices_pgr where id in "+ in_part;
             ds.Reset();
             da = new NpgsqlDataAdapter(get_features, DataLayer.DataLayer.DbConnection);
-            da.Fill(ds);
 
-            FeatureDataTable fdt = new FeatureDataTable();
-
-            foreach (DataColumn col in ds.Tables[0].Columns)
+            try
             {
-                fdt.Columns.Add(col.Namespace, col.DataType);
-            }
+                da.Fill(ds);
 
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
+                FeatureDataTable fdt = new FeatureDataTable();
+
+                foreach (DataColumn col in ds.Tables[0].Columns)
+                {
+                    fdt.Columns.Add(col.Namespace, col.DataType);
+                }
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
                     FeatureDataRow fDR = fdt.NewRow();
                     fDR.ItemArray = row.ItemArray;
                     IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
@@ -1180,19 +1259,27 @@ namespace Gis_rekreacija
                     byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(row.ItemArray[0].ToString());
                     fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
                     fdt.AddRow(fDR);
-            }
+                }
 
-            if (fdt.Rows.Count > 0)
+                if (fdt.Rows.Count > 0)
+                {
+                    clearSelectionLayers();
+                    VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
+                    laySelected.DataSource = new GeometryProvider(fdt);
+                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+                    laySelected.Style.Line = new Pen(System.Drawing.Color.Red);
+                    selectedLayers.Add(laySelected);
+                }
+
+                insertSelectionLayers();
+
+            }
+            catch (Exception ex)
             {
-                clearSelectionLayers();
-                VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
-                laySelected.DataSource = new GeometryProvider(fdt);
-                laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-                laySelected.Style.Line = new Pen(System.Drawing.Color.Red);
-                selectedLayers.Add(laySelected);
+
             }
 
-            insertSelectionLayers();
+           
 
 
             DataLayer.DataLayer.CloseConnection();
