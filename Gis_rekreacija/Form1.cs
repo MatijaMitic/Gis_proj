@@ -1022,20 +1022,38 @@ namespace Gis_rekreacija
             string queryFrom = firstLayerName + "," + secondLayerName;
             string select_queryColumns = firstLayerName + ".geom" + "," + secondLayerName + ".geom";
 
+            bool sameLayer = false;
             if (firstLayerName == secondLayerName)
             {
-                select_queryColumns = firstLayerName + ".geom";
-                queryFrom = firstLayerName;
+                sameLayer = true;
+                string firstLayerAlias = "a";
+                string secondLayerAlias = "b";
+
+                select_queryColumns = firstLayerAlias + ".geom";
+                queryFrom = firstLayerName + " " + firstLayerAlias + ", " + firstLayerName + " " + secondLayerAlias;
+                queryColumns = firstLayerAlias + ".geom" + ", " + secondLayerAlias + ".geom";
+
+                firstLayerName = firstLayerAlias;
+                secondLayerName = secondLayerAlias;
+                /*
+                SELECT ST_Distance(a.geom, b.geom)
+                FROM points_table a, points_table b
+                WHERE a.id='x' AND b.id='y';
+                */
             }
 
-                
+
             string sql = "";
             bool oneToOne = false;
             string firstGidSQLList = CreateSqlForGidList(geometriesGidModeFirst);
             string secondGidSQLList = CreateSqlForGidList(geometriesGidModeSecond);
+            int numberOfObjects = 0;
 
             if (!distanceMode)
-            {             
+            {
+                select_queryColumns = firstLayerName + ".geom" + "," + firstLayerName + ".gid" + "," + firstLayerName + ".osm_id" + "," + firstLayerName + ".code" + "," + firstLayerName + ".fclass" + "," + firstLayerName + ".name" + ","  +
+                                      secondLayerName + ".geom" + ","+ secondLayerName + ".gid" + "," + secondLayerName + ".osm_id" + "," + secondLayerName + ".code" + "," + secondLayerName + ".fclass" + "," + secondLayerName + ".name";
+
                 string operation = cbOperation.SelectedItem.ToString();
 
                     sql = "SELECT " + select_queryColumns +
@@ -1053,13 +1071,19 @@ namespace Gis_rekreacija
                             " FROM " + queryFrom +
                             " WHERE " + firstLayerName + ".gid IN " + firstGidSQLList +
                             " AND " + secondLayerName + ".gid IN " + secondGidSQLList;
+
+                    /*
+                     SELECT ST_Distance(a.geom, b.geom)
+                     FROM points_table a, points_table b
+                     WHERE a.id='x' AND b.id='y';
+                     */
                 }
                 else
                 {
-                    select_queryColumns = secondLayerName + ".geom";
+                    select_queryColumns = secondLayerName + ".geom" + "," + secondLayerName + ".gid" + "," + secondLayerName + ".osm_id" + "," + secondLayerName + ".code" + "," + secondLayerName + ".fclass" + "," + secondLayerName + ".name";
                     var gidsOfSelectedObject = CreateSqlForGidList(geometriesGidModeFirst);
                     int meters = Int32.Parse(tbDistanceMeters.Text.ToString());
-                    int numberOfObjects;
+                  
                     bool parsedNumberOfObjects = Int32.TryParse(tbObjectNumber.Text.ToString(), out numberOfObjects);
 
                     sql = "SELECT " + select_queryColumns +
@@ -1069,7 +1093,21 @@ namespace Gis_rekreacija
 
                     if (parsedNumberOfObjects)
                     {
-                        sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects;
+                        if (sameLayer)
+                        {
+                            int selectedGeometries = geometriesGidModeFirst.Count;
+                            //numberOfObjects += geometriesGidModeFirst.Count;
+
+                            sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + (selectedGeometries * selectedGeometries * numberOfObjects + selectedGeometries);
+                            //numberOfObjects += selectedGeometries * selectedGeometries;
+
+                            //numberOfObjects += selectedGeometries;
+                        }
+                        else
+                        {
+                            sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects;
+                        }
+                        
                     }      
                 }
 
@@ -1096,18 +1134,63 @@ namespace Gis_rekreacija
                     fdt.Columns.Add(col.Namespace, col.DataType);
                 }
 
+                List<int> localGidList = new List<int>();
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    foreach (var rowItem in row.ItemArray)
+                    //provera da se izbace svi gid-ovi iz drugog selektovanog, za distance za objekte istog sloja
+                    if (distanceMode)
                     {
+                        string geom = row[0].ToString();
+                        if (sameLayer)
+                        {
+                            int gid = Int32.Parse(row[1].ToString());
+                            if (!geometriesGidModeFirst.Contains(gid) && !localGidList.Contains(gid))
+                            {
+                                FeatureDataRow fDR = fdt.NewRow();
+                                fDR.ItemArray = row.ItemArray;
+                                IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                                NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
+                                byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom);
+                                fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+                                fdt.AddRow(fDR);
+
+                                localGidList.Add(gid);
+                                numberOfObjects--;
+                            }
+
+                            if (numberOfObjects == 0) break;
+                        }
+                        else
+                        {
+                            FeatureDataRow fDR = fdt.NewRow();
+                            fDR.ItemArray = row.ItemArray;
+                            IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                            NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
+                            byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom);
+                            fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+                            fdt.AddRow(fDR);
+                        }                     
+                    }               
+                    else
+                    {
+                        string geom1 = row[0].ToString();
                         FeatureDataRow fDR = fdt.NewRow();
                         fDR.ItemArray = row.ItemArray;
                         IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
                         NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
-                        byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(rowItem.ToString());
+                        byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom1);
                         fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
                         fdt.AddRow(fDR);
-                    }
+
+                        string geom2 = row[6].ToString();
+                        fDR = fdt.NewRow();
+                        fDR.ItemArray = row.ItemArray;
+                        geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                        wkbReader = new NetTopologySuite.IO.WKBReader();
+                        b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom2.ToString());
+                        fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+                        fdt.AddRow(fDR);
+                    }           
                 }
 
                 if (fdt.Rows.Count > 0)
