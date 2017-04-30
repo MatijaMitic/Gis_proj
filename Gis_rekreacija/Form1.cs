@@ -11,6 +11,7 @@ using SharpMap.Data.Providers;
 using SharpMap.Layers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -37,7 +38,7 @@ namespace Gis_rekreacija
         Dictionary<string, SharpMap.Layers.ILayer> all_layers;
         Dictionary<string, DataSet> selected_datasets;
 
-        List<VectorLayer> selectedLayers;
+        List<VectorLayer> selectedLayers = new List<VectorLayer>();
 
         Dictionary<string,Dictionary<string, SharpMap.Styles.IStyle>> style_dict;
 
@@ -147,6 +148,13 @@ namespace Gis_rekreacija
         }
         public VectorLayer GetLayer(string layer_name) {
             return (VectorLayer)all_layers[layer_name];
+        }
+        public void AddDataSet(DataSet ds, string name) {
+            if (selected_datasets.Keys.Contains("Selection"))
+                selected_datasets[name] = ds;
+            else
+                selected_datasets.Add(name, ds);
+            this.button2.Enabled = true;
         }
         #endregion
         private void mapBox1_MouseMove(GeoAPI.Geometries.Coordinate worldPos, MouseEventArgs imagePos)
@@ -581,11 +589,19 @@ namespace Gis_rekreacija
                 var layer = all_layers[layerName];
                 if (layer.GetType() == typeof(VectorLayer))
                 {
-                    LayerFeatureQuery styleForm = new LayerFeatureQuery((VectorLayer)layer);
+                    LayerFeatureQuery styleForm = new LayerFeatureQuery((VectorLayer)layer,this);
 
                     styleForm.ShowDialog();
 
-                    mapBox1.Map.Layers.Add(styleForm.selectionLayer);
+                    if (styleForm.selectionLayer != null)
+                    {
+                        mapBox1.Map.Layers.Add(styleForm.selectionLayer);
+                        selectedLayers.Add(styleForm.selectionLayer);
+                        all_layers.Add(styleForm.selectionLayer.ToString(), styleForm.selectionLayer);
+                        this.checkedListBox1.Items.Add(styleForm.selectionLayer.ToString(), true);
+
+                      //  mapBox1.Map.ZoomToBox(styleForm.selectionLayer.Envelope);
+                    }
 
                     mapBox1.Refresh();
                 }
@@ -848,7 +864,7 @@ namespace Gis_rekreacija
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (mode == (int)Modes.DrawRectangle)
+            /*if (mode == (int)Modes.DrawRectangle)
             {
                 //return all layers
                 mapBox1.Map.Layers.Clear();
@@ -858,14 +874,14 @@ namespace Gis_rekreacija
                 }
 
                 mapBox1.Refresh();
-            }
+            }*/
             mode = (int)Modes.Selection;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.None;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (mode == (int)Modes.DrawRectangle)
+            /*if (mode == (int)Modes.DrawRectangle)
             {
                 //return all layers
                 mapBox1.Map.Layers.Clear();
@@ -875,14 +891,14 @@ namespace Gis_rekreacija
                 }
 
                 mapBox1.Refresh();
-            }
+            }*/
             mode = (int)Modes.Pan;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.Pan;
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (mode == (int)Modes.DrawRectangle) {
+            /*if (mode == (int)Modes.DrawRectangle) {
                 //return all layers
                 mapBox1.Map.Layers.Clear();
                 foreach (ILayer i in all_layers.Values) {
@@ -890,7 +906,7 @@ namespace Gis_rekreacija
                 }
 
                 mapBox1.Refresh();
-            }
+            }*/
             mode = (int)Modes.DrawPolygon;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.DrawPolygon;
         }
@@ -931,6 +947,19 @@ namespace Gis_rekreacija
             return gidSQLList;
         }
 
+        private string CreateSqlForGidListLong(List<long> listOfGids)
+        {
+            string gidSQLList = "(";
+
+            foreach (long gid in listOfGids)
+            {
+                gidSQLList += "'" + gid + "'"+ ",";
+            }
+            gidSQLList = gidSQLList.Remove(gidSQLList.Length - 1, 1);
+            gidSQLList += ")";
+
+            return gidSQLList;
+        }
 
         private void button_add_new_lay_Click(object sender, EventArgs e)
         {
@@ -953,43 +982,92 @@ namespace Gis_rekreacija
                 return;
             var temp_layer_name = this.checkedListBox1.SelectedItem.ToString();
             var temp_layer = this.all_layers[temp_layer_name];
+           
             if (mapBox1.Map.Layers[mapBox1.Map.Layers.IndexOf(temp_layer)].Enabled)
             {
                 mode = (int)Modes.DrawRectangle;
                 mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.QueryBox;
                 //ostavi upaljen samo jedan selektovani layer
-                mapBox1.Map.Layers.Clear();
-                mapBox1.Map.Layers.Add(temp_layer);
+                mapBox1.Map.Layers.Remove(temp_layer);
+                mapBox1.Map.Layers.Insert(0, temp_layer);
                 mapBox1.Refresh();
                 //ostale sve izbaci iz mapboxa
             }
         }
         private void mapBox1_MapQuerid(FeatureDataTable fdt)
         {
-            clearSelectionLayers();
             if (fdt.Rows.Count > 0)
             {
-                Color color = Color.Yellow;
-                SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(fdt.TableName + "Selection");
-                laySelected.DataSource = new GeometryProvider(fdt);
-                laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
-                laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
-                laySelected.Style.Line = new System.Drawing.Pen(color);
-                this.mapBox1.Map.Layers.Add(laySelected);
-                this.all_layers.Add(laySelected.LayerName, laySelected);
-                this.selectedLayers.Add(laySelected);
-                this.checkedListBox1.Items.Add(laySelected.LayerName, true);
+                if (queryModeFirstObject || queryModeSecondObject)
+                {
+                    string layerName;
+                    Brush layerStyle;
+                    if (queryModeFirstObject)
+                    {
+                        clearSelectionLayers();
+                        layerName = cbFirstLayer.SelectedItem.ToString();
+                        layerStyle = new System.Drawing.SolidBrush(System.Drawing.Color.Blue);
+                    }
+                    else
+                    {
+                        layerName = cbSecondLayer.SelectedItem.ToString();
+                        layerStyle = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
+                    }
+                    
+                    SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(GenerateSelectionLayerName(layerName));
+                    laySelected.DataSource = new GeometryProvider(fdt);           
 
-                DataSet ds = new DataSet();
-                ds.Tables.Add(fdt);
-                selected_datasets.Add(laySelected.LayerName, ds);
-                this.button2.Enabled = true;
+                    foreach (FeatureDataRow tableRow in fdt.Rows)
+                    {
+                        int gid = (int)tableRow.ItemArray[0];
+
+                        if (queryModeFirstObject)
+                        {
+                            geometriesGidModeFirst.Add(gid);
+                        }
+                        else if (queryModeSecondObject)
+                        {
+                            geometriesGidModeSecond.Add(gid);
+                        }
+                    }
+                    laySelected.Style.Fill = layerStyle;
+                    laySelected.Style.PointColor = layerStyle;
+                    laySelected.Style.Line = new System.Drawing.Pen(layerStyle);
+                    this.mapBox1.Map.Layers.Add(laySelected);
+                    this.all_layers.Add(laySelected.LayerName, laySelected);
+                    this.selectedLayers.Add(laySelected);
+                    this.checkedListBox1.Items.Add(laySelected.LayerName, true);
+
+                    DataSet ds = new DataSet();
+                    ds.Tables.Add(fdt);
+                    selected_datasets.Add(laySelected.LayerName, ds);
+                    this.button2.Enabled = true;
+                }
+                else
+                {
+                    clearSelectionLayers();
+                    Color color = Color.Yellow;
+                    SharpMap.Layers.VectorLayer laySelected = new SharpMap.Layers.VectorLayer(fdt.TableName + "Selection");
+                    laySelected.DataSource = new GeometryProvider(fdt);
+                    laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
+                    laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
+                    laySelected.Style.Line = new System.Drawing.Pen(color);
+                    this.mapBox1.Map.Layers.Add(laySelected);
+                    this.all_layers.Add(laySelected.LayerName, laySelected);
+                    this.selectedLayers.Add(laySelected);
+                    this.checkedListBox1.Items.Add(laySelected.LayerName, true);
+
+                    DataSet ds = new DataSet();
+                    ds.Tables.Add(fdt);
+                    selected_datasets.Add(laySelected.LayerName, ds);
+                    this.button2.Enabled = true;
+                }
             }
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            if (mode == (int)Modes.DrawRectangle)
+            /* (mode == (int)Modes.DrawRectangle)
             {
                 //return all layers
                 mapBox1.Map.Layers.Clear();
@@ -999,7 +1077,7 @@ namespace Gis_rekreacija
                 }
 
                 mapBox1.Refresh();
-            }
+            }*/
             mode = (int)Modes.ZoomWindow;
             mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.ZoomWindow;
         }
@@ -1262,9 +1340,9 @@ namespace Gis_rekreacija
 
             var firstLayerName = firstLayer.DataSource.GetFeature(1).Table.TableName;
             var secondLayerName = secondLayer.DataSource.GetFeature(1).Table.TableName;
-            var roadLayerName = "putevi_srbija";
+            var roadLayerName = "ways";
 
-            var queryColumns = firstLayerName + ".geom" + "," + roadLayerName + ".geom";
+            var queryColumns = firstLayerName + ".geom" + "," + "ST_Transform(" + roadLayerName + ".the_geom" + ",3857)";
             var queryFrom = firstLayerName + "," + roadLayerName;
 
             var select_queryColumns = roadLayerName + ".source, " + roadLayerName + ".target, " + roadLayerName + ".gid";
@@ -1288,7 +1366,7 @@ namespace Gis_rekreacija
                  sourceId = row.ItemArray[0].ToString();
             }
 
-            queryColumns = secondLayerName + ".geom" + "," + roadLayerName + ".geom";
+            queryColumns = secondLayerName + ".geom" + "," + "ST_Transform(" + roadLayerName + ".the_geom" + ",3857)";
             queryFrom = secondLayerName + "," + roadLayerName;
 
             gidOfSelectedObject = geometriesGidModeSecond.FirstOrDefault();
@@ -1311,7 +1389,7 @@ namespace Gis_rekreacija
             }
 
             //imamo oba
-            string rout_sql = "select node from pgr_dijkstra('SELECT gid AS id, source, target, st_length(geom) as cost FROM putevi_srbija', "+sourceId+", "+targetId+", false)";
+            string rout_sql = "select node from pgr_dijkstra('SELECT gid AS id, source, target, st_length(the_geom) as cost FROM ways', "+sourceId+", "+targetId+", false)";
             ds.Reset();
             da = new NpgsqlDataAdapter(rout_sql, DataLayer.DataLayer.DbConnection);
             da.Fill(ds);
@@ -1322,40 +1400,50 @@ namespace Gis_rekreacija
                 rout_ids.Add(Int32.Parse(row.ItemArray[0].ToString()));
             }
             string in_part = CreateSqlForGidList(rout_ids);
-
-            string get_features = "select the_geom from putevi_srbija_vertices_pgr where id in "+ in_part;
+            if (rout_ids.Count == 0)
+                return;
+            //select r.geom from ways_vertices_pgr w, putevi_srbija r where ST_Intersects(ST_Transform(w.the_geom, 3857), r.geom) and w.id in (57846,91384,20484,16629,26386,69788,71873)
+            string get_features = "select ST_Transform(the_geom, 3857) from ways_vertices_pgr where id in " + in_part;
             ds.Reset();
             da = new NpgsqlDataAdapter(get_features, DataLayer.DataLayer.DbConnection);
+            da.Fill(ds);
 
             try
             {
-                da.Fill(ds);
-
+                
                 FeatureDataTable fdt = new FeatureDataTable();
 
                 foreach (DataColumn col in ds.Tables[0].Columns)
                 {
                     fdt.Columns.Add(col.Namespace, col.DataType);
                 }
-
+                IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                List<Coordinate> coordinates = new List<Coordinate>();
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     FeatureDataRow fDR = fdt.NewRow();
                     fDR.ItemArray = row.ItemArray;
-                    IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
                     NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
                     byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(row.ItemArray[0].ToString());
                     fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+
+                    coordinates.Add(fDR.Geometry.Coordinate);
+
                     fdt.AddRow(fDR);
                 }
 
                 if (fdt.Rows.Count > 0)
                 {
+                    
+                    Collection<GeoAPI.Geometries.IGeometry> geomColl = new Collection<GeoAPI.Geometries.IGeometry>();
+                    geomColl.Add(geometryFactory.CreateLineString(coordinates.ToArray()));
+
                     clearSelectionLayers();
                     VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
-                    laySelected.DataSource = new GeometryProvider(fdt);
-                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-                    laySelected.Style.Line = new Pen(System.Drawing.Color.Red);
+                    laySelected.DataSource = new SharpMap.Data.Providers.GeometryProvider(geomColl);
+                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Aquamarine);
+                    laySelected.Style.Line = new Pen(System.Drawing.Color.Aquamarine);
+                    laySelected.Style.PointColor = new System.Drawing.SolidBrush(System.Drawing.Color.Aquamarine);
                     selectedLayers.Add(laySelected);
                 }
 

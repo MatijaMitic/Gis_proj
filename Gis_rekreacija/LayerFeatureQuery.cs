@@ -19,13 +19,13 @@ namespace Gis_rekreacija
     public partial class LayerFeatureQuery : Form
     {
         private VectorLayer layer;
-
+        private Form1 main_form;
         public VectorLayer selectionLayer { get; set; }
-        public LayerFeatureQuery(VectorLayer layer)
+        public LayerFeatureQuery(VectorLayer layer, Form1 main_form)
         {
             this.layer = layer;
             InitializeComponent();
-
+            this.main_form = main_form;
             this.button1.Click += OperatorClick;
             this.button2.Click += OperatorClick;
             this.button3.Click += OperatorClick;
@@ -130,10 +130,15 @@ namespace Gis_rekreacija
 
             if (fdt.Rows.Count > 0)
             {
+                var yellowBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
                 VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
                 laySelected.DataSource = new GeometryProvider(fdt);
-                laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
+                laySelected.Style.Fill = yellowBrush;
+                laySelected.Style.Line = new Pen(yellowBrush);
+                laySelected.Style.PointColor = yellowBrush;
                 this.selectionLayer = laySelected;
+                //
+                main_form.AddDataSet(ds, "Selection");
             }
 
             conn.Close();
