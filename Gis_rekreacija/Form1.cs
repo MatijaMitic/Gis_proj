@@ -1052,8 +1052,15 @@ namespace Gis_rekreacija
                     laySelected.Style.Fill = new System.Drawing.SolidBrush(color);
                     laySelected.Style.PointColor = new System.Drawing.SolidBrush(color);
                     laySelected.Style.Line = new System.Drawing.Pen(color);
+
+                  
                     this.mapBox1.Map.Layers.Add(laySelected);
-                    this.all_layers.Add(laySelected.LayerName, laySelected);
+
+                    if (!this.all_layers.ContainsKey(laySelected.LayerName))
+                    {
+                        this.all_layers.Add(laySelected.LayerName, laySelected);
+                    }
+            
                     this.selectedLayers.Add(laySelected);
                     this.checkedListBox1.Items.Add(laySelected.LayerName, true);
 
@@ -1160,7 +1167,14 @@ namespace Gis_rekreacija
                 {
                     select_queryColumns = secondLayerName + ".geom" + "," + secondLayerName + ".gid" + "," + secondLayerName + ".osm_id" + "," + secondLayerName + ".code" + "," + secondLayerName + ".fclass" + "," + secondLayerName + ".name";
                     var gidsOfSelectedObject = CreateSqlForGidList(geometriesGidModeFirst);
-                    int meters = Int32.Parse(tbDistanceMeters.Text.ToString());
+                    int meters = 0;
+                    try
+                    {
+                        meters = Int32.Parse(tbDistanceMeters.Text.ToString());
+                    }
+                    catch (Exception ee) {
+
+                    }
                   
                     bool parsedNumberOfObjects = Int32.TryParse(tbObjectNumber.Text.ToString(), out numberOfObjects);
 
@@ -1183,7 +1197,7 @@ namespace Gis_rekreacija
                         }
                         else
                         {
-                            sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects;
+                            sql += " ORDER BY ST_Distance(" + queryColumns + ") LIMIT " + numberOfObjects * 10;
                         }
                         
                     }      
@@ -1219,8 +1233,8 @@ namespace Gis_rekreacija
                     if (distanceMode)
                     {
                         string geom = row[0].ToString();
-                        if (sameLayer)
-                        {
+                      //  if (sameLayer)
+                      //  {
                             int gid = Int32.Parse(row[1].ToString());
                             if (!geometriesGidModeFirst.Contains(gid) && !localGidList.Contains(gid))
                             {
@@ -1237,17 +1251,17 @@ namespace Gis_rekreacija
                             }
 
                             if (numberOfObjects == 0) break;
-                        }
-                        else
-                        {
-                            FeatureDataRow fDR = fdt.NewRow();
-                            fDR.ItemArray = row.ItemArray;
-                            IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
-                            NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
-                            byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom);
-                            fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
-                            fdt.AddRow(fDR);
-                        }                     
+                       // }
+                       // else
+                       // {
+                       //     FeatureDataRow fDR = fdt.NewRow();
+                       //     fDR.ItemArray = row.ItemArray;
+                       //     IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
+                      //      NetTopologySuite.IO.WKBReader wkbReader = new NetTopologySuite.IO.WKBReader();
+                       //     byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(geom);
+                       //     fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
+                       //     fdt.AddRow(fDR);
+                       // }                     
                     }               
                     else
                     {
@@ -1278,10 +1292,13 @@ namespace Gis_rekreacija
                     laySelected.DataSource = new GeometryProvider(fdt);
                     laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
                     laySelected.Style.Line = new Pen(System.Drawing.Color.Yellow);
+                    laySelected.Style.PointColor = new System.Drawing.SolidBrush(System.Drawing.Color.Yellow);
                     // laySelected.Style.PointColor = new Brush(System.Drawing.Color.Yellow);
                     selectedLayers.Add(laySelected);
                     //this.selectionLayer = laySelected;
-                    selected_datasets.Add(laySelected.LayerName, ds);
+                    DataSet ds1 = new DataSet();
+                    ds1.Tables.Add(fdt);
+                    selected_datasets.Add(laySelected.LayerName, ds1);
                     button2.Enabled = true;
                 }
 
@@ -1389,7 +1406,7 @@ namespace Gis_rekreacija
             }
 
             //imamo oba
-            string rout_sql = "select node from pgr_dijkstra('SELECT gid AS id, source, target, st_length(the_geom) as cost FROM ways', "+sourceId+", "+targetId+", false)";
+            string rout_sql = "select edge from pgr_dijkstra('SELECT gid AS id, source, target, st_length(the_geom) as cost FROM ways', "+sourceId+", "+targetId+", false)";
             ds.Reset();
             da = new NpgsqlDataAdapter(rout_sql, DataLayer.DataLayer.DbConnection);
             da.Fill(ds);
@@ -1403,7 +1420,8 @@ namespace Gis_rekreacija
             if (rout_ids.Count == 0)
                 return;
             //select r.geom from ways_vertices_pgr w, putevi_srbija r where ST_Intersects(ST_Transform(w.the_geom, 3857), r.geom) and w.id in (57846,91384,20484,16629,26386,69788,71873)
-            string get_features = "select ST_Transform(the_geom, 3857) from ways_vertices_pgr where id in " + in_part;
+            //string get_features = "select ST_Transform(the_geom, 3857) from ways_vertices_pgr where id in " + in_part;
+            string get_features = "select ST_Transform(the_geom, 3857) from ways where gid in " + in_part;
             ds.Reset();
             da = new NpgsqlDataAdapter(get_features, DataLayer.DataLayer.DbConnection);
             da.Fill(ds);
@@ -1418,7 +1436,7 @@ namespace Gis_rekreacija
                     fdt.Columns.Add(col.Namespace, col.DataType);
                 }
                 IGeometryFactory geometryFactory = GeometryServiceProvider.Instance.CreateGeometryFactory(3857);
-                List<Coordinate> coordinates = new List<Coordinate>();
+             //   List<Coordinate> coordinates = new List<Coordinate>();
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     FeatureDataRow fDR = fdt.NewRow();
@@ -1427,7 +1445,7 @@ namespace Gis_rekreacija
                     byte[] b2 = NetTopologySuite.IO.WKBReader.HexToBytes(row.ItemArray[0].ToString());
                     fDR.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse(b2, geometryFactory);
 
-                    coordinates.Add(fDR.Geometry.Coordinate);
+                  //  coordinates.Add(fDR.Geometry.Coordinate);
 
                     fdt.AddRow(fDR);
                 }
@@ -1435,15 +1453,16 @@ namespace Gis_rekreacija
                 if (fdt.Rows.Count > 0)
                 {
                     
-                    Collection<GeoAPI.Geometries.IGeometry> geomColl = new Collection<GeoAPI.Geometries.IGeometry>();
-                    geomColl.Add(geometryFactory.CreateLineString(coordinates.ToArray()));
+                 //   Collection<GeoAPI.Geometries.IGeometry> geomColl = new Collection<GeoAPI.Geometries.IGeometry>();
+                 //   geomColl.Add(geometryFactory.CreateLineString(coordinates.ToArray()));
 
                     clearSelectionLayers();
                     VectorLayer laySelected = new SharpMap.Layers.VectorLayer("Selection");
-                    laySelected.DataSource = new SharpMap.Data.Providers.GeometryProvider(geomColl);
-                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.Aquamarine);
-                    laySelected.Style.Line = new Pen(System.Drawing.Color.Aquamarine);
-                    laySelected.Style.PointColor = new System.Drawing.SolidBrush(System.Drawing.Color.Aquamarine);
+                    laySelected.DataSource = new SharpMap.Data.Providers.GeometryProvider(fdt);
+                    laySelected.Style.Fill = new System.Drawing.SolidBrush(System.Drawing.Color.DeepPink);
+                    laySelected.Style.Line = new Pen(System.Drawing.Color.DeepPink, 10);
+                    laySelected.Style.PointColor = new System.Drawing.SolidBrush(System.Drawing.Color.DeepPink);
+                  //  laySelected.Style.Outline =
                     selectedLayers.Add(laySelected);
                 }
 

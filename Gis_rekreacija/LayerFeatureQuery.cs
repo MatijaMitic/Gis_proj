@@ -75,6 +75,8 @@ namespace Gis_rekreacija
         private void GetDistinctValues(VectorLayer layer)
         {
             DataRowCollection dtRows = DataLayer.DataLayer.GetLayerColumns(layer);
+            if (dtRows == null)
+                return;
             foreach (DataRow row in dtRows)
             {
                 lbAttributes.Items.Add(row.ItemArray[3]);
